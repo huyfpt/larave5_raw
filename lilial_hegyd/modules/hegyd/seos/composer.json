@@ -1,0 +1,24 @@
+{
+    "name": "hegyd/seos",
+    "description": "Module seos",
+    "authors": [
+        {
+            "name": "le van hen",
+            "email": "levanhen01@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Hegyd\\Seos\\": "src/Seos/"
+        }
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Hegyd\\Seos\\SeosServiceProvider"
+          ]
+        }
+    }
+}

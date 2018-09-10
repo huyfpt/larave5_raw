@@ -1,0 +1,1 @@
+<?php return config('eav.lang.fr');

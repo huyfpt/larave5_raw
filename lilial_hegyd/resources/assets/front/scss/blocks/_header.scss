@@ -1,0 +1,192 @@
+/**
+ * CSS HEADER
+ */
+.header-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid #fff;
+    height: 96px;
+    .container {
+        height: 96px;
+    }
+    .col-logo {
+        a {
+            display: block;
+            line-height: 96px;
+            background-color: #fff;
+            text-align: center;
+            width: 158px;
+            box-shadow: 0px 2px 24px rgba(0,6,14, 0.35);
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+    .col-menu {
+        text-align: right;
+        a {
+            color: #fff;
+            margin-left: 20px;
+            .fa {
+                font-size: 18px;
+            }
+        }
+        .menu {
+            li {
+                float: left;
+                line-height: 96px;
+                padding-left: 10px;
+                padding-right: 10px;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+                a {
+                    font-size: 16px;
+                    margin-left: 0;
+                    display: block;
+                    @include transition(all .3s ease-in-out);
+                    position: relative;
+                    &::before {
+                        width: 0;
+                        height: 3px;
+                        display: block;
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        bottom: 0;
+                        background-color: $green;
+                        z-index: 10;
+                        @include transition(all .3s ease-in-out);
+                    }
+                    &:hover {
+                        color: $green;
+                        &::before {
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .hd_club {
+            font-size: 14px;
+            color: $green;
+            vertical-align: top;
+            line-height: 43px;
+            width: 132px;
+            height: 43px;
+            border: 2px solid $green;
+            @include border-radius(20px);
+            text-align: center;
+            @include fGogamMed();
+            margin-top: 25px;
+            @include transition(all .3s ease);
+            &:hover {
+                background-color: $green;
+                color: #fff;
+            }
+        }
+        .hd_search {
+            vertical-align: top;
+            margin-top: 37px;
+            .ico {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+    .hd_menu {
+        display: none !important;
+        width: 42px;
+        height: 42px;
+        background-color: #1f87ff;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0, 35, 58, 0.62);
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        @include transition(all .3s ease);
+        @include border-radius(4px);
+        text-align: center;
+        line-height: 50px;
+        &:hover {
+            background-color: #fff;
+            color: #1f87ff;
+        }
+        .ico {
+            display: inline-block;
+        }
+    }
+}
+.header-wrap {
+    .grp-menu {
+        position: relative;
+    }
+    .search-wrap {
+        position: absolute;
+        top: 25px;
+        left: 200px;
+        right: 0;
+        z-index: -2;
+        opacity: 0;
+        visibility: hidden;
+        background-color: #fff;
+        @include border-radius(4px);
+        overflow: hidden;
+        @include transition(all .3s ease);
+        &.shw {
+            left: 0;
+            z-index: 1;
+            opacity: 1;
+            visibility: visible
+        }
+        .ipt {
+            background-color: transparent;
+            @include border-radius(0);
+            padding-left: 55px;
+            &.ipt-normal {
+                &:focus {
+                    border-color: initial;
+                }
+            }
+        }
+        .btn-search {
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 1px;
+            text-align: center;
+            left: 1px;
+            z-index: 1;
+            height: 45px;
+            width: 45px;
+        }
+        .ico {
+            display: inline-block;
+            &.ico-search {
+                vertical-align: -4px;
+                background-image: url('../images/icons/sch_d_icon@2x.png');
+            }
+        }
+    }
+}
+.header-wrap {
+    .hd_search {
+        &.active {
+            position: relative;
+            z-index: 2;
+            right: 5px;
+            .ico {
+                &.ico-search {
+                    background-image: url('../images/icons/ico-close-d.png');
+                }
+            }
+        }
+    }
+}

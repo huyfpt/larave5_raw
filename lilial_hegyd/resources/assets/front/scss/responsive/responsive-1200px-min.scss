@@ -1,0 +1,244 @@
+/**
+ * Media 1200px+
+ *
+ * description: css rules for screen of desktop
+ */
+
+@media (min-width: 1501px) {
+    .home-news {
+        &.pad-80 {
+            padding-bottom: 130px;
+        }
+    }
+    .map-wrap {
+        height: 600px;
+    }
+    .info-club {
+        margin-bottom: -46px;
+    }
+}
+@media (max-width: 1366px) {
+    .home-news {
+        .line {
+            left: -60px;
+        }
+    }
+    .home-about {
+        .line.line2 {
+            bottom: -185px;
+            right: -50px;
+            width: 300px;
+        }
+    }
+    .map-wrap {
+        height: 400px;
+    }
+    .home-news {
+        min-height: 1060px;
+        &.club-plans {
+            padding-bottom: 120px;
+            .blk-title {
+                margin-bottom: 20px;
+            }
+            .blk-desc {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        max-width: none;
+    }
+    #myVideo {
+        .modal-dialog {
+            max-width: 90%;
+        }
+    }
+    // CSS HEADER
+    .header-wrap {
+        .col-menu {
+            a {
+                margin-left: 15px;
+            }
+            .menu {
+                li {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .hd_club {
+                font-size: 12px;
+                width: 112px;
+            }
+        }
+    }
+    // CSS SLIDER
+    .blk-slider {
+        &.home-slider {
+            .slider-up {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+    .line {
+        display: none;
+    }
+    // CSS HOME ABOUT
+    .home-about {
+        background-size: 220px auto;
+    }
+    // CSS PAGE CLUB
+    .info-club {
+        &.info-grid {
+            .info {
+                padding: 30px 20px 0 20px;
+            }
+        }
+    }
+    // CSS PAGE DETAIL
+    .product-detail-info {
+        .prod-detail-ttl {
+            font-size: 40px;
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .hotline-side  {
+        display: none;
+    }
+    // CSS SLIDER
+    .blk-slider {
+        &.home-slider {
+            .slider-info {
+                .ttl {
+                    font-size: 34px;
+                }
+                .text {
+                    font-size: 20px;
+                    line-height: 26px;
+                }
+            }
+            .slider-up {
+                .btn.btn-green {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+    .blk-title {
+        font-size: 28px;
+        span {
+            font-size: 18px;
+        }
+    }
+    .blk-desc {
+        font-size: 18px;
+    }
+    // CSS HOME NEWS
+    .home-news {
+        .nw-logo {
+            img {
+                width: 141px;
+            }
+        }
+        .tp-inner {
+            .ttl {
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+        .nw-tour {
+            margin-bottom: 45px;
+        }
+        .lil-fanpage {
+            margin-bottom: 15px;
+        }
+    }
+    // CSS METHOD
+    .home-list-method {
+        padding-bottom: 10px;
+        .lst-method {
+            li {
+                width: 33.33333333%;
+                margin-bottom: 30px;
+                span {
+                    display: block;
+                }
+            }
+        }
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        .cat-item {
+            .ttl {
+                font-size: 18px;
+            }
+        }
+    }
+    .prod-item {
+        .prod-ttl {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+    // CSS HOME NEWS
+    .nw-item {
+        .nw-img {
+            height: 157px;
+        }
+    }
+    // CSS HOME ABOUT
+    .info-grid {
+        .info {
+            padding: 30px 0;
+        }
+    }
+    .blk-slider {
+        &.blk-page-banner {
+            .page-banner-info {
+                .ttl {
+                    font-size: 34px;
+                    margin-bottom: 15px;
+                }
+                .ico {
+                    width: 58px;
+                    height: 58px;
+                }
+            }
+        }
+    }
+    // CSS PAGE CLUB
+    .info-club {
+        &.info-grid {
+            .info {
+                .txt {
+                    height: 120px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    // CSS PAGE DETAIL
+    .product-access {
+        .container {
+            max-width: none;
+        }
+    }
+    .product-detail-info {
+        .prod-info-left, .prod-info-right {
+            flex: 0 0 100%;
+            max-width: 100%;
+            .inner {
+                margin: 0 auto;
+                width: 495px;
+            }
+        }
+        .prod-info-left {
+            margin-bottom: 40px;
+        }
+    }
+}

@@ -1,0 +1,466 @@
+/**
+ * Media 1200px+
+ *
+ * description: css rules for screen of tablets
+ */
+@media (max-width: 992px) {
+    // CSS HEADER
+    .header-wrap {
+        border-bottom: none;
+        .col-logo {
+            padding-left: 0;
+        }
+        .grp-menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -2;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            overflow-y: auto;
+            @include transition(all .3s ease);
+            background-color: #001D57;
+            padding: 50px 30px;
+            width: 400px;
+            &.shw {
+                z-index: 10;
+                opacity: 1;
+                visibility: visible;
+            }
+            .d-inline-block {
+                display: block !important;
+            }
+        }
+        .col-menu {
+            a {
+                display: block;
+            }
+            .menu {
+                margin-bottom: 20px;
+                li {
+                    float: none;
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: left;
+                    border-bottom: 1px solid #3D3D3D;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    a {
+                        line-height: 40px;
+                        &::before {
+                            display: none;
+                        }
+                        &:hover {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+            .hd_club {
+                width: 132px;
+                margin-top: 0;
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+            .hd_search {
+                margin-left: 0;
+                line-height: normal;
+                text-align: left;
+                margin-top: 0;
+            }
+        }
+        .hd_menu {
+            display: inline-block !important;
+            &.active {
+                z-index: 10;
+                background: #001d57;
+                color: #fff; 
+                &:hover {
+                    background: #001d57;
+                    color: #fff; 
+                }
+            }
+            &:hover {
+                background: #1f87ff;
+                color: #fff; 
+            }
+        }
+    }
+    // CSS HOME ABOUT
+    .home-about {
+        background-image: none;
+        padding-bottom: 30px;
+        .about-txt {
+            width: 100%;
+        }
+        .about-list {
+            .lst {
+                padding-left: 0;
+            }
+        }
+    }
+    .pad-80 {
+        padding: 60px 0;
+    }
+    // CSS HOME NEWS
+    .home-news {
+        min-height: auto;
+        background-image: none;
+        background: rgb(38,135,227); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(38,135,227,1) 0%, rgba(15,207,167,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(38,135,227,1) 0%,rgba(15,207,167,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(38,135,227,1) 0%,rgba(15,207,167,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        margin-top: 0;
+        .hp-left, .hp-right {
+            .inner {
+                &.pad-80 {
+                    padding-top: 60px;
+                }
+            }
+        }
+    }
+    // CSS FOOTER
+    .footer-wrap {
+        font-size: 14px;
+    }
+    #myVideo {
+        .modal-body {
+            height: 400px;
+        }
+    }
+    // CSS PAGE PRODUCT
+    .home-about {
+        &.prod-about {
+            padding-top: 0;
+        }
+    }
+    .product-list-wrap  {
+        .prod-item {
+            .prod-inner {
+                width: 100%;
+            }
+        }
+    }
+    .blk-slider {
+        &.blk-banner {
+            .banner-ttl {
+                font-size: 40px;
+            }
+        }
+    }
+    .breadcrumb-wrap {
+        a, span {
+            font-size: 14px;
+        }
+    }
+    // CSS PAGE ABOUT
+    .info-grid {
+        .info {
+            .txt {
+                height: 120px;
+                overflow: hidden;
+            }
+        }
+    }
+    // CSS PAGE CONTACT
+    .contact-form {
+        .lb-form {
+            font-size: 16px;
+        }
+    }
+    // CSS PAGE CLUB
+    .info-club {
+        margin-bottom: 0;
+        &.info-grid {
+            .container {
+                padding: 0 15px;
+            }
+            .info-img {
+                display: block;
+                padding: 0;
+            }
+            .w50 {
+                display: none;
+            }
+            .info-wrap {
+                position: relative;
+            }
+            .info {
+                padding: 30px 15px;
+                width: 520px;
+                margin: 0 auto;
+                .txt {
+                    height: auto;
+                    overflow: visible;
+                }
+            }
+            .col-md-6 {
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+    }
+    .home-news {
+        &.club-plans {
+            padding-bottom: 60px;
+        }
+    }
+    .club-social {
+        &::before {
+            display: none;
+        }
+        margin-top: 0;
+        padding-top: 30px;
+    }
+    // CSS PAGE DETAIL
+    .product-detail-info {
+        .prod-detail-ttl {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+    }
+    .product-detail-table {
+        .table {
+            thead {
+                th {
+                    font-size: 18px;
+                }
+            }
+            td {
+                font-size: 14px;
+            }
+        }
+    }
+    .header-wrap {
+        .search-wrap {
+            position: relative;
+            top: auto;
+            left: 0;
+            @include transition(none);
+            .ipt {
+                padding-left: 45px;
+            }
+            .btn-search {
+                width: 35px;
+            }
+        }
+        .hd_search {
+            position: absolute;
+            bottom: 65px;
+            left: 35px;
+            &.active {
+                position: absolute;
+                left: auto;
+                right: 35px;
+            }
+        }
+    }
+}
+@media (max-width: 960px) {
+    // CSS HOME NEWS
+    .nw-item {
+        .nw-img {
+            height: 147px;
+        }
+    }
+    .nw-list {
+        margin-bottom: 40px;
+    }
+    .home-news {
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .nw-left, .nw-right {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .nw-left {
+            margin-bottom: 50px;
+        }
+        .nw-tour {
+            margin-bottom: 30px;
+        }
+        .lil-fanpage {
+            height: 300px;
+        }
+        .nw-tour {
+            .tour-itm {
+                margin-bottom: 20px;
+                flex: 0 0 50%;
+                max-width: 50%;
+                &:last-child {
+                    margin-bottom: 0;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        &::before {
+            display: none;
+        }
+        .hp-left, .hp-right {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .hp-left {
+            .inner {
+                width: 480px;
+                margin: 0 auto;
+            }
+        }
+        .hp-right {
+            background-color: #fff;
+            .inner {
+                padding-left: 0;
+            }
+        }
+    }
+    // CSS FOOTER
+    .footer-wrap {
+        .ft-uro, .ft-cica, .ft-stoma, .ft-lilial {
+            flex: 0 0 25%;
+            max-width: 25%;
+            margin-bottom: 50px;
+        }
+        .ft-stoma {
+            ul, .ft-title {
+                margin-left: 0;
+            }
+        }
+        .ft-social {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            li {
+                display: inline-block;
+                margin-right: 20px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    // CSS PAGE CLUB
+    .home-news {
+        &.club-plans {
+            .container {
+                max-width: none;
+            }
+        }
+    }
+}
+@media (max-width: 900px) {
+    // CSS SLIDER
+    .blk-slider {
+        &.home-slider {
+            .slider-info {
+                .ttl {
+                    font-size: 28px;
+                }
+                .text {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+            }
+            .slider-up {
+                .btn.btn-green {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    // CSS FOOTER
+    .footer-wrap {
+        .ft-uro, .ft-cica, .ft-stoma, .ft-lilial {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        .ft-social {
+            text-align: left;
+        }
+    }
+    // CSS PAGE ABOUT
+    .info-grid {
+        .info {
+            .txt {
+                height: 100px;
+            }
+        }
+    }
+    .blk-rating {
+        .ttl {
+            &.sml {
+                margin-bottom: -10px;
+            }
+            &.num {
+                font-size: 62px;
+            }
+        }
+    }
+
+    .map-wrap {
+        height: 350px;
+    }
+    // CSS PAGE CLUB
+    .home-news {
+        &.club-plans {
+            .plans-wrap {
+                width: auto;           
+            }
+        }
+    }
+    .blk-ambassadors {
+        .container {
+            max-width: none;
+        }
+    }
+}
+@media (max-width: 860px) {
+    // CSS PAGE PROFILE
+    .profile-wrap {
+        .empty {
+            display: none;
+        }
+        .col-profile {
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+}
+@media (max-width: 800px) {
+    // CSS HOME ABOUT
+    .home-about {
+        .about-list {
+            .ab-video {
+                width: auto;
+            }
+        }
+    }
+    // CSS PAGE ABOUT
+    .info-grid {
+        .info {
+            .txt {
+                height: 80px;
+            }
+        }
+    }
+    // CSS PAGE PROFILE
+    .profile-avatar {
+        .ava-img {
+            width: 220px;
+            height: 220px;
+        }
+        .ava-ttl {
+            margin-top: 50px;
+        }
+    }
+}

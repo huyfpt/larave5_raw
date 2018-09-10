@@ -1,0 +1,24 @@
+{
+    "name": "hegyd/pages",
+    "description": "Module pages",
+    "authors": [
+        {
+            "name": "le van hen",
+            "email": "levanhen01@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Hegyd\\Pages\\": "src/Pages/"
+        }
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Hegyd\\Pages\\PagesServiceProvider"
+          ]
+        }
+    }
+}

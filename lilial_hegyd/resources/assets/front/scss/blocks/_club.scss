@@ -1,0 +1,163 @@
+/**
+ * CSS PAGE CLUB
+ */
+.info-club {
+    margin-bottom: -43px;
+    z-index: 3;
+    .lil-subscription {
+        .ttl {
+            color: #002E8A;
+        }
+        .row {
+            margin-left: -10px;
+            margin-right: -10px;
+            [class*="col"] {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+    &.info-grid {
+        .info {
+            padding: 60px 40px 0 40px;
+            .txt {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+.blk-ambassadors {
+    background-color: #F1F7FF;
+    .slick-dots {
+        display: none !important;
+    }
+    .blk-title {
+        margin-bottom: 40px;
+    }
+    .container {
+        max-width: 840px;
+        margin: 0 auto;
+    }
+    .nw-item {
+        width: 256px;
+        margin-right: 20px;
+        .nw-img {
+            height: 210px;
+        }
+        .txt {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .nw-info {
+            padding: 10px 15px 15px 15px;
+        }
+    }
+}
+
+.club-contact {
+    background-color: $green;
+    color: #fff;
+    text-align: center;
+    .ico {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        margin-bottom: 5px;
+    }
+    .ttl {
+        font-size: 32px;
+        @include fCFRegular();
+        width: 460px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+}
+
+.home-news {
+    &.club-plans {
+        min-height: auto;
+        .blk-title {
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        .blk-desc {
+            margin-bottom: 60px;
+        }
+        .plans-wrap {
+            width: 840px;
+            margin: 0 auto;
+        }
+        .nw-item {
+            margin-right: 20px;
+            width: 254px;
+            .slick-dots {
+                display: none !important;
+            }
+            .nw-info {
+                padding: 10px 15px 15px 15px;
+            }
+            margin-bottom: 60px;
+        }
+        .nw-list-slider {
+            display:  block;
+        }
+    }
+}
+.club-social {
+    padding: 0 0 30px 0;
+    margin-top: -10px;
+    background-color: #001D57;
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        background-color: #001D57;
+        position: absolute;
+        top: -220px;
+        left: 0;
+        right: 0;
+        height: 220px;
+        z-index: 1;
+    }
+    .sc-item {
+        position: relative;
+        z-index: 2;
+        a {
+            padding: 10px 15px;
+            @include border-radius(4px);
+            color: #fff;
+            display: block;
+            height: 80px;
+            background: rgb(35,133,255); /* Old browsers */
+            background: -moz-linear-gradient(left, rgba(35,133,255,1) 0%, rgba(73,187,255,1) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, rgba(35,133,255,1) 0%,rgba(73,187,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, rgba(35,133,255,1) 0%,rgba(73,187,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            &:hover {
+                .fa {
+                    padding-bottom: 10px;
+                }
+                .ttl {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+    .container {
+        max-width: 660px;
+        margin: 0 auto;
+    }
+    .fa {
+        width: 60px;
+        font-size: 36px;
+        text-align: center;
+        vertical-align: middle;
+        @include transition(all .3s ease);
+    }
+    .ttl {
+        @include fCFHeavy();
+        font-size: 20px;
+        vertical-align: middle;
+        padding-left: 5px;
+        @include transition(all .3s ease);
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "hegyd/faqs",
+    "description": "Module faqs",
+    "authors": [
+        {
+            "name": "Hugues Do",
+            "email": "hungdv@dfm-engineering.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Hegyd\\Faqs\\": "src/Faqs/",
+          "Hegyd\\Faqs\\Database\\Seeds\\": "database/seeds/"
+        }
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Hegyd\\Faqs\\FaqsServiceProvider"
+          ]
+        }
+    }
+}

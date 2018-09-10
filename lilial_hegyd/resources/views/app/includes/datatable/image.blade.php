@@ -1,0 +1,1 @@
+<img src="{!! $model->media($relation) !!}" width="200">

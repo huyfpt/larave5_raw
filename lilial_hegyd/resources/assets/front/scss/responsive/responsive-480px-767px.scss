@@ -1,0 +1,598 @@
+/**
+ * Media 480px-767px
+ *
+ * description: css rules for screen of new moderm smartphone
+ */
+@media (max-width: 767px) {
+    body {
+        &.mn-open {
+            overflow: hidden;
+        }
+    }
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .blk-desc {
+        font-size: 16px;
+    }
+    // CSS HEADER
+    .header-wrap {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .grp-menu {
+            position: fixed;
+            width: auto;
+            left: 0;
+            // bottom: 0
+        }
+    }
+    // CSS SLIDER
+    .blk-slider {
+        &.home-slider {
+            .slider-info {
+                top: 116px;
+                transform: translateY(0);
+                .text {
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+                .ttl {
+                    margin-bottom: 20px;
+                }
+            }
+            .slider-up {
+                width: auto;
+                .btn.btn-green {
+                    margin-bottom: 60px;
+                }
+            }
+            img {
+                display: none;
+            }
+            .thumb-mb {
+                background-size: cover;
+                height: 540px;
+                background-position: center;
+                display: block;
+            }
+            .slider-info {
+                padding-left: 30px;
+                padding-right: 30px;
+                width: auto;
+            }
+        }
+    }
+    // CSS HOME ABOUT
+    .home-about {
+        margin-bottom: 0;
+        .blk-desc {
+            width: 100%;
+        }
+        .about-list {
+            .lst {
+                width: 100%;
+                li {
+                    margin-bottom: 60px;
+                }
+            }
+            .ab-icon {
+                float: none;
+                margin: 0 auto;
+                margin-bottom: 15px;
+                width: 72px;
+                height: 72px;
+            }
+            .ab-info {
+                text-align: center;
+                width: 480px;
+                margin: 0 auto;
+            }
+            .sml-ttl {
+                margin-bottom: 15px;
+            }
+        }
+        .ab-right {
+            display: none;
+        }
+    }
+    // CSS HOME TOUR
+    .home-news {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .nw-left {
+            margin-bottom: 20px;
+        }
+        .nw-join {
+            display: none;
+        }
+        .lil-fanpage {
+            margin-bottom: 60px;
+            height: 260px;
+        }
+        .lil-subscription {
+            .ttl {
+                font-size: 25px;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+        .sub-form {
+            form {
+                background-color: rgba(250, 253, 255, 0.3);
+            }
+        }
+        .nw-list {
+            display: none;
+            &.nw-list-slider {
+                display: block;
+                margin-bottom: 60px;
+                .nw-item {
+                    margin-right: 20px;
+                    width: 254px;
+                }
+                .slick-dots {
+                    display: none !important;
+                }
+            }
+        }
+    }
+    .nw-item {
+        .nw-img {
+            height: 178px;
+        }
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .hp-right {
+            .inner {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .hp-form-group {
+                .blk-arr {
+                    text-align: center;
+                }
+                .col-sm-12 {
+                    &:first-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    // CSS METHOD
+    .home-list-method {
+        .lst-method {
+            li {
+                width: 50%;
+                text-align: center;
+            }
+            .ico {
+                float: none;
+                margin: 0 auto;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .logo-list {
+        &::before, &::after {
+            display: table;
+            content: "";
+            line-height: 0;
+        }
+        &::after {
+            clear: both;
+        }
+        .logo-item {
+            width: 50%;
+            text-align: center;
+            float: left;
+            margin-bottom: 15px;
+        }
+    }
+    // CSS PAGE PRODUCT
+    .breadcrumb-wrap {
+        padding: 15px 0;
+        .container {
+            padding: 0 15px;
+        }
+    }
+    .blk-slider {
+        &.blk-banner {
+            img {
+                display: none;
+            }
+            .banner-thumb {
+                height: 400px;
+            }
+        }
+        .banner-thumb {
+            display: block;
+        }
+    }
+    .prod-pagination {
+        a {
+            display: none;
+            &.nextpostslink {
+                display: inline-block;
+            }
+        }
+    }
+    // CSS PAGE ABOUT
+    .blk-rating {
+        .rating-itm {
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .info-grid {
+        .container {
+            padding: 0 15px;
+        }
+        .info-img {
+            display: block;
+            padding: 0;
+        }
+        .w50 {
+            display: none;
+        }
+        .info-wrap {
+            position: relative;
+        }
+        .info {
+            padding: 30px 15px;
+            .txt {
+                height: auto;
+                overflow: visible;
+            }
+        }
+    }
+    .home-about {
+        &.blk-page-desc {
+            .about-txt {
+                width: 100%;
+            }
+        }
+    }
+    .blk-reference {
+        &.pad-80 {
+            padding-top: 20px;
+        }
+    }
+    .blk-slider {
+        &.blk-page-banner {
+            img {
+                display: none;
+            }
+            .banner-thumb {
+                height: 300px;
+            }
+        }
+    }
+    // CSS PAGE CONTACT
+    .contact-form{
+        .lb-form {
+            padding-top: 0;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            &:first-child {
+                .col-form {
+                    margin-bottom: 0;
+                }
+            }
+            &.text-right {
+                text-align: center !important;
+            }
+        }
+        .col-form {
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .capcha-wrap {
+            display: block;
+            width: 260px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .btn-wrap {
+            display: block;
+        }
+        .btn {
+            &.btn-green {
+                width: 260px;
+            }
+        }
+    }
+    .ipt {
+        &.half {
+            width: 100%;
+        }
+        &.txtarea {
+            height: 217px;
+        }
+    }
+    .map-wrap {
+        height: 300px;
+    }
+    .home-about {
+        &.pad-60 {
+            padding-top: 30px;
+        }
+    }
+    .grp-radio {
+        margin-left: 0;
+    }
+    // CSS PAGE CLUB
+    .info-club {
+        .lil-subscription {
+            .ttl {
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+    }
+    .home-news {
+        &.club-plans {
+            .plans-wrap {
+                width: 480px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .blk-ambassadors {
+        .nw-list {
+            display: none;
+            &.nw-list-slider {
+                display: block;
+                width: 480px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .club-contact {
+        .ttl {
+            font-size: 28px;
+        }
+        &.pad-60 {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+    .club-social {
+        .container {
+            max-width: none;
+        }
+        .sc-item {
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            a {
+                width: 280px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .empty {
+        display: none;
+    }
+    // CSS PAGE PROFILE
+    .profile-avatar {
+        bottom: 20px;
+        text-align: center;
+        .ava-img {
+            width: 180px;
+            height: 180px;
+        }
+        .ava-ttl {
+            margin-top: 15px;
+            font-size: 34px;
+        }
+    }
+    .profile-wrap {
+        .ipt {
+            &.ipt-normal {
+                width: 100%;
+                &.half {
+                    width: 100%;
+                }
+            }
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    }
+    .profile-security {
+        .ipt {
+            &.ipt-normal {
+                &.half {
+                    width: 190px;
+                }
+            }
+        }
+    }
+    .profile-newsletter {
+        .lb-form {
+            display: block;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 60px;
+        }
+    }
+    // CSS PAGE DETAIL
+    .thumb-gallery {
+        .slick-arrow {
+            z-index: 10;
+            opacity: 1;
+            visibility: visible;
+            &.slick-prev {
+                left: 0;
+            }
+            &.slick-next {
+                right: 0;
+            }
+        }
+    }
+    // CSS PAGE PRODUCT
+    .blk-slider {
+        &.blk-breadcrumb {
+            .breadcrumb-wrap {
+                padding: 0;
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .breadcrumb-wrap {
+        a , span {
+            font-size: 13px;
+            vertical-align: middle;
+        }
+        a {
+            margin-right: 10px;
+            padding-right: 15px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            &::after {
+                font-size: 11px;
+            }
+        }
+    }
+    .filter-form {
+        &.pad-60 {
+            padding: 30px 0;
+        }
+        .hp-form {
+            width: 100%;
+        }
+    }
+}
+@media (max-width: 640px) {
+    // CSS PAGE PRODUCT
+    .blk-slider {
+        &.blk-banner {
+            .banner-thumb {
+                height: 300px;
+            }
+        }
+    }
+}
+@media (max-width: 560px) {
+    // CSS HOME ABOUT
+    .home-about {
+        .about-list {
+            .ab-info {
+                width: auto;
+            }
+        }
+    }
+    // CSS HOME NEWS
+    .home-news {
+        .container {
+            max-width: none;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .tp-left {
+            margin-bottom: 30px;
+        }
+        .lil-fanpage {
+            height: 300px;
+        }
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        .hp-left {
+            .inner {
+                width: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    }
+    // CSS FOOTER {
+    .footer-wrap {
+        .container {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        .ft-uro, .ft-cica, .ft-stoma, .ft-lilial {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    // CSS PAGE PRODUCT
+    .product-list-wrap {
+        .prod-item {
+            width: 315px;
+            margin: 0 auto;
+        }
+    }
+    // CSS PAGE CLUB
+    .info-club {
+        &.info-grid {
+            .info {
+                width: auto;
+            }
+        }
+    }
+    .home-news {
+        &.club-plans {
+            .plans-wrap {
+                width: auto;
+            }
+        }
+    }
+    .blk-ambassadors {
+        .nw-list {
+            &.nw-list-slider {
+                width: auto;
+            }
+        }
+    }
+    .club-contact {
+        .ttl {
+            width: auto;
+        }
+    }
+    // CSS PAGE DETAIL
+    .product-detail-info {
+        .prod-info-left, .prod-info-right {
+            .inner {
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+        .prod-info-right  {
+            text-align: center;
+        }
+    }
+    .thumb-gallery {
+        .gal-item {
+            width: 128px;
+        }
+    }
+}

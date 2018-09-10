@@ -1,0 +1,82 @@
+/**
+ * CSS FOOTER
+ */
+.footer-wrap {
+    background-color: #001d57;
+    color: #fff;
+    font-size: 16px;
+    a {
+        color: #fff;
+    }
+    .menu {
+        li {
+            margin-bottom: 8px;
+            a {
+                @include transition(all .3s ease);
+                &:hover {
+                    color: $green;
+                }
+            }
+        }
+    }
+    .ft-title  {
+        @include fGogamBold();
+        font-size: 18px;
+        color: #d8d8d8;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        &.ft-faq {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 0;
+            a {
+                @include transition(all .3s ease);
+                &:hover {
+                    color: $green;
+                }
+            }
+        }
+    }
+}
+.footer-wrap {
+    .ft-stoma {
+        .ft-title, ul {
+            margin-left: -40px;
+        }
+    }
+    .ft-hotline {
+        margin-top: 15px;
+        display: block;
+        img {
+            width: 200px;
+        }
+    }
+    .ft-social {
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            color:#001D57;
+            background-color: #fff;
+            display: block;
+            @include border-radius(3px);
+            font-size: 20px;
+            @include transition(all .3s ease);
+            i {
+                color:#001D57;
+                @include transition(all .3s ease);
+            }
+            &:hover {
+                background-color: $green;
+                color: #fff;
+                i {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

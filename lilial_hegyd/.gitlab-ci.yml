@@ -1,0 +1,114 @@
+image: gitlab.hegyd.net:4567/hegyd/docker-deploy-image:latest
+
+variables:
+  MYSQL_DATABASE: database
+  MYSQL_ROOT_PASSWORD: secret
+  DB_HOST: mysql
+  DB_USERNAME: root
+  GIT_SSL_NO_VERIFY: "true"
+  PROJECT_NAME: "lilial"
+  SONAR_PROJECT_KEY: "$PROJECT_NAME"
+  SONAR_GITLAB_PROJECT_ID: "git@gitlab.hegyd.net:hegyd/$PROJECT_NAME.git"
+  SONAR_TOKEN: "9d85c7029994ca34b5b502d6fcf6c8177e9d0684"
+  SONAR_SOURCES: "app/"
+  # L'image Sonar ne supportant pas la modification des paramètres de criticité, je suis obligé
+  # d'injecter un parametre au niveau de l'URL.
+  SONAR_URL: "http://sonar.hegyd.net:9000"
+  SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
+
+stages:
+  - test
+  - deploy
+  - analysis
+
+unit_test:
+  stage: test
+  services:
+    - mysql:5.7
+  cache:
+    key: "$CI_JOB_NAME"
+    untracked: true
+    paths:
+      - vendor/
+      - node_modules/    
+  script:
+    - cp .env.example .env
+    - composer update
+    - php artisan --version
+    #- php artisan migrate
+    - npm install
+    - php artisan key:generate
+    - npm run production
+    #- vendor/bin/phpunit
+
+sonarqube:
+  stage: analysis
+  image: ciricihq/gitlab-sonar-scanner
+  allow_failure: true
+  variables:
+    SONAR_ANALYSIS_MODE: "issues"
+  script:
+    - /usr/bin/sonar-scanner-run.sh -Dsonar.gitlab.max_critical_issues_gate=-1
+
+sonarqube_full:
+  stage: analysis
+  image: ciricihq/gitlab-sonar-scanner
+  allow_failure: true
+  variables:
+    SONAR_ANALYSIS_MODE: "publish"
+  script:
+    - /usr/bin/sonar-scanner-run.sh -Dsonar.gitlab.max_critical_issues_gate=-1
+  only:
+    - master
+
+
+deploy_prod:
+  stage: deploy
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add -k
+    - ~/.composer/vendor/bin/envoy run deploy --repository="$SONAR_GITLAB_PROJECT_ID" --server='integration_continue@mutu7-laravel.hegyd.net' --seed=1 --commithash=$CI_COMMIT_SHA --project="prod" --rootFolder='/var/projects/lilial/'
+  environment:
+    name: prod_hegyd
+    url: https://www.lilial.fr
+  only:
+    - master
+  when: manual
+
+deploy_preprod:
+  stage: deploy
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add -k
+    - ~/.composer/vendor/bin/envoy run deploy --repository="$SONAR_GITLAB_PROJECT_ID" --server='integration_continue@mutu7-laravel.hegyd.net' --seed=1 --commithash=$CI_COMMIT_SHA --project="preprod" --rootFolder='/var/projects/lilial/'
+  environment:
+    name: preprod_hegyd
+    url: https://$PROJECT_NAME.preprod.mutu7-laravel.hegyd.net
+  only:
+    - preprod
+  when: manual
+
+deploy_dev:
+  stage: deploy
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add -k
+    - ~/.composer/vendor/bin/envoy run deploy --repository="$SONAR_GITLAB_PROJECT_ID" --server='integration_continue@mutu7-laravel.hegyd.net' --seed=1 --commithash=$CI_COMMIT_SHA --project="dev" --rootFolder='/var/projects/lilial/'
+  environment:
+    name: dev_hegyd
+    url: https://$PROJECT_NAME.dev.mutu7-laravel.hegyd.net
+  only:
+    - develop
+
+deploy_recette:
+  stage: deploy
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add -k
+    - ~/.composer/vendor/bin/envoy run deploy --repository="$SONAR_GITLAB_PROJECT_ID" --server='integration_continue@mutu7-laravel.hegyd.net' --seed=1 --commithash=$CI_COMMIT_SHA --project="recette" --rootFolder='/var/projects/lilial/'
+  environment:
+    name: recette_hegyd
+    url: https://$PROJECT_NAME.recette.mutu7-laravel.hegyd.net
+  only:
+    - recette
+  when: manual

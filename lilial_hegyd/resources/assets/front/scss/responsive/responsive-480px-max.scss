@@ -1,0 +1,156 @@
+/**
+ * Media 480px-
+ *
+ * description: css rules for screen of old school smartphone
+ */
+@media (max-width: 480px) {
+    // CSS HOME NEWS
+    .home-news {
+        .nw-list {
+            &.nw-list-slider {
+                .nw-item {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .lil-fanpage {
+            height: 260px;
+        }
+    }
+    .ipt {
+        &.txtarea {
+            height: 137px;
+        }
+    }
+    // CSS PAGE PROFILE
+    .profile-security {
+        .btn-upload {
+            width: auto;
+            padding: 0 20px;
+        }
+    }
+}
+@media (max-width: 420px) {
+    // CSS HOME NEWS
+    .home-news {
+        .lil-fanpage {
+            height: 210px;
+        }
+    }
+    // CSS PAGE PROFILE
+    .profile-security {
+        .btn-upload {
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+    }
+}
+@media (max-width: 380px) {
+    // CSS SLIDER
+    .blk-slider {
+        &.home-slider {
+            .slider-info {
+                .ttl {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    // CSS HOME PRODUCT
+    .home-product {
+        .product-list {
+            &::after {
+                display: none;
+            }
+        }
+        .prod-item {
+            margin-right: 15px;
+            width: 260px;
+        }
+    }
+    .prod-item {
+        .prod-inner {
+            width: 100%;
+        }
+    }
+    // CSS FOOTER
+    .footer-wrap {
+        .ft-social {
+            li {
+                margin-right: 15px;
+            }
+        }
+    }
+    .map-wrap {
+        height: 250px;
+    }
+    .ipt {
+        &.txtarea {
+            height: 107px;
+        }
+    }
+    .btn {
+        &.btn-green, &.btn-white {
+            padding: 0 20px;
+        }
+    }
+    .club-social {
+        .sc-item {
+            a {
+                width: 100%;
+            }
+        }
+    }
+    .btn {
+        &.btn-green, &.btn-white {
+            font-size: 16px;
+        }
+    }
+    // CSS PAGE PROFILE
+    .profile-avatar {
+        .ava-img {
+            width: 160px;
+            height: 160px;
+        }
+        .ava-ttl {
+            font-size: 28px;
+        }
+    }
+    // CSS PAGE DETAIL
+    .product-access {
+        .prod-item {
+            .prod-inner {
+                width: 260px;
+            }
+        }
+    }
+    .thumb-gallery {
+        .gal-item {
+            width: 98px;
+        }
+    }
+}
+@media (max-width: 360px) {
+    // CSS PAGE PROFILE
+    .profile-security {
+        .btn-upload {
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+        .ipt {
+            &.ipt-normal {
+                &.half {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 340px) {
+    // CSS HOME NEWS
+    .home-news {
+        .lil-fanpage {
+            height: 170px;
+        }
+    }
+}

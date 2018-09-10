@@ -1,0 +1,92 @@
+/**
+ * CSS PAGE CONTACT
+ */
+.pad-60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.contact-form{
+    padding-bottom: 50px;
+    .form-group {
+        margin-bottom: 30px;
+    }
+    .capcha-wrap, .btn-wrap {
+        display: inline-block;
+    }
+    .capcha-wrap {
+        margin-right: 20px;
+        img {
+            max-width: 100%;
+        }
+    }
+    .btn {
+        &.btn-green {
+            @include border-radius(4px);
+            width: 314px;
+            padding: 0;
+            box-shadow: none;
+            @include fCFBold();
+            height: 64px;
+            line-height: 64px;
+            &:hover {
+                border: 1px solid $green;
+            }
+        }
+    }
+}
+.lb-form {
+    display: inline-block;
+    height: 47px;
+    padding-top: 12px;
+    font-weight: normal;
+    margin-bottom: 0;
+    font-size: 18px;
+    @include fAvenMedium();
+    color: #4B6394;
+}
+.grp-radio {
+    display: inline-block;
+    margin-left: 20px;
+    .txt {
+        @include fAvenMedium();
+        color: #A6B5D4;
+        &.on {
+            color: #4B6394;
+        }
+    }
+    .wrap {
+        display: inline-block;
+        width: 60px;
+        height: 24px;
+        margin-left: 15px;
+        margin-right: 15px;
+        background-color: #F1F7FF;
+        @include border-radius(12px);
+        overflow: hidden;
+        margin-bottom: -6px;
+    }
+    .btn-group {
+        outline: none;
+        .btn {
+            width: 30px;
+            height: 24px;
+            @include border-radius(12px !important);
+            background: transparent;
+            padding: 0;
+            border: none;
+            text-indent: 9999px;
+            &.active {
+                box-shadow: none;
+                background: $green;
+            }
+        }
+    }
+}
+.map-wrap {
+    height: 500px;
+    overflow: hidden;
+    background-color: #eee;
+    .map-img {
+        width: 100%;
+    }
+}

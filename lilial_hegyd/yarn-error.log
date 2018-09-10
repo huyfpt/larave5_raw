@@ -1,0 +1,73 @@
+Arguments: 
+  /home/henlv/.nvm/versions/node/v8.10.0/bin/node /home/henlv/.nvm/versions/node/v8.10.0/bin/yarn run dev
+
+PATH: 
+  /home/henlv/.nvm/versions/node/v8.10.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.10.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch-poll": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+      "axios": "^0.15.3",
+      "bootstrap-sass": "^3.3.7",
+      "cross-env": "^3.2.3",
+      "jquery": "^3.1.1",
+      "laravel-mix": "^0.8.3",
+      "lodash": "^4.17.4",
+      "vue": "^2.1.10"
+    },
+    "name": "lilial",
+    "description": "Création d’un projet de « référence » qui peux servir de base pour d’autre nouveau projet. Normalement tout fonctionne.",
+    "version": "1.0.0",
+    "main": "webpack.mix.js",
+    "directories": {
+      "test": "tests"
+    },
+    "dependencies": {
+      "grunt": "^1.0.3"
+    },
+    "repository": {
+      "type": "git",
+      "url": "ssh://git@code.dfm-europe.com/lilial/lilial_hegyd.git"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 2
+  Command: sh
+  Arguments: -c cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js
+  Directory: /home/henlv/Workspaces/LILIAL/lilial
+  Output:
+  
+      at ProcessTermError.MessageError (/home/henlv/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/home/henlv/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/home/henlv/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

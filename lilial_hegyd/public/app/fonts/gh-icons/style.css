@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'gh-icon';
+  src:  url('fonts/gh-icon.eot?5t61ch');
+  src:  url('fonts/gh-icon.eot?5t61ch#iefix') format('embedded-opentype'),
+    url('fonts/gh-icon.ttf?5t61ch') format('truetype'),
+    url('fonts/gh-icon.woff?5t61ch') format('woff'),
+    url('fonts/gh-icon.svg?5t61ch#gh-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icogh {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'gh-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gh_contact:before {
+  content: "\e900";
+}
+.gh_ged:before {
+  content: "\e901";
+}
+.gh_graph:before {
+  content: "\e902";
+}
+.gh_mail:before {
+  content: "\e903";
+}
+.gh_social:before {
+  content: "\e904";
+}
+

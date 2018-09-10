@@ -1,0 +1,36 @@
+{
+  "name": "hegyd/ecommerce",
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "~5.5",
+    "creitive/laravel5-breadcrumbs": "^2.0",
+    "laravelcollective/html": "5.5.*",
+    "hegyd/uploads": "5.5.*",
+    "guzzlehttp/guzzle": "^6.3",
+    "paypal/rest-api-sdk-php": "^1.13",
+    "barryvdh/laravel-dompdf": "^0.8.2",
+    "hegyd/faqs": "*"
+  },
+  "authors": [
+    {
+      "name": "Quentin BONTEMPS",
+      "email": "q.bontemps@hegyd.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Hegyd\\eCommerce\\": "src/",
+      "Hegyd\\eCommerce\\Database\\Seeds\\": "database/seeds/"
+    },
+    "files": [
+      "src/Support/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hegyd\\eCommerce\\eCommerceServiceProvider"
+      ]
+    }
+  }
+}

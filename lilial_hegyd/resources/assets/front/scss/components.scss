@@ -1,0 +1,45 @@
+/**
+ * Page components
+ *
+ * Description: This is the most accessible LESS file. For creating stucture of a LESS project
+ * There're some simple rules:
+ *  - use base rule on this file. E.g. every single rule/indent or each component. To generate the fast view for the parent components
+ *  - for children rules put it in matched folders and import it in parent's section
+ *
+ */
+body {
+    color: #001D57;
+    font-size: 14px;
+    line-height: 20px;
+    @include fGogamBook();
+}
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+a {
+    text-decoration: none;
+    outline: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+//** ------ {{ plugins }} ------------------------------------
+@import 'blocks/plugins';
+
+//** ------ {{ header }} ------------------------------------
+@import 'blocks/header';
+
+//** ------ {{ content }} ------------------------------------
+@import 'blocks/homepage';
+@import 'blocks/product';
+@import 'blocks/about';
+@import 'blocks/contact';
+@import 'blocks/club';
+@import 'blocks/profile';
+
+//** ------ {{ footer }} ------------------------------------
+@import 'blocks/footer';

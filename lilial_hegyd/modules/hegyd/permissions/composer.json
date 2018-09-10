@@ -1,0 +1,27 @@
+{
+    "name": "hegyd/permissions",
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.5",
+        "laravelcollective/html": "5.5.*",
+        "zizaco/entrust": "^1.9"
+    },
+    "authors": [
+        {
+            "name": "Quentin BONTEMPS",
+            "email": "q.bontemps@hegyd.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hegyd\\Permissions\\": "src/Permissions/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hegyd\\Permissions\\PermissionsServiceProvider"
+            ]
+        }
+    }
+}

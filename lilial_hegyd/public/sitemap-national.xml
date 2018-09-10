@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://lilial.local/vendor/sitemap/styles/xml.xsl" type="text/xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<url>
+	<loc>http://lilial.local</loc>
+		<priority>1</priority>
+		<lastmod>2018-08-09T06:45:04+02:00</lastmod>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+	<loc>http://lilial.local/admin/seos/creation</loc>
+		<priority>1</priority>
+		<lastmod>2018-08-09T06:02:24+02:00</lastmod>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+	<loc>dsfdsf</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+	<loc>http://lilial.local/admin/seos/2/edition</loc>
+		<priority>1</priority>
+		<lastmod>2018-08-08T05:36:56+02:00</lastmod>
+		<changefreq>daily</changefreq>
+	</url>
+</urlset>
+

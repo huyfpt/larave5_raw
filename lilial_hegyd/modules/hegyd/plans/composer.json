@@ -1,0 +1,25 @@
+{
+    "name": "hegyd/plans",
+    "description": "Module plans",
+    "authors": [
+        {
+            "name": "Park Crystal",
+            "email": "vienlc@dfm-engineering.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Hegyd\\Plans\\": "src/Plans/",
+          "Hegyd\\Plans\\Database\\Seeds\\": "src/database/seeds/"
+        }
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Hegyd\\Plans\\PlansServiceProvider"
+          ]
+        }
+    }
+}

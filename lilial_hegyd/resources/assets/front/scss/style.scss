@@ -1,0 +1,24 @@
+/**
+ * Main file
+ *
+ * the mother LESS. The file that including and ordering components, and use for compiling.
+ *
+ */
+
+
+//** ------ {{ bootstrap }} ------------------------------------
+@import "scss/bootstrap.scss";
+
+//** ------ {{ plugins }} ------------------------------------
+// @import "plugins/...";
+
+//** ------ {{ page components }} ------------------------------------
+@import "mixins/css3.scss";
+@import "components.scss";
+@import "custom.scss";
+
+//** ------ {{ csutom responsive }} ------------------------------------
+@import "responsive/responsive-1200px-min.scss";
+@import "responsive/responsive-768px-979px.scss";
+@import "responsive/responsive-480px-767px.scss";
+@import "responsive/responsive-480px-max.scss";

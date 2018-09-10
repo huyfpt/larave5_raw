@@ -1,0 +1,139 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0",
+        "arrilot/laravel-widgets": "^3.12",
+        "baum/baum": "^1.1",
+        "creitive/laravel5-breadcrumbs": "^2.1",
+        "cviebrock/eloquent-sluggable": "^4.3",
+        "doctrine/dbal": "^2.5",
+        "hegyd/ecommerce": "*",
+        "hegyd/faqs": "*",
+        "hegyd/logs": "5.5.*",
+        "hegyd/news": "5.5.39",
+        "hegyd/pages": "*",
+        "hegyd/permissions": "*",
+        "hegyd/plans": "*",
+        "hegyd/seos": "*",
+        "hegyd/uploads": "5.5.2",
+        "hegyd/xss-protection": "^1.0",
+        "intervention/image": "^2.3",
+        "laravel/framework": "5.5.*",
+        "laravel/horizon": "^1.2",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "5.5.*",
+        "predis/predis": "^1.1",
+        "roumen/sitemap": "2.7.*",
+        "sentry/sentry": "^1.8",
+        "sentry/sentry-laravel": "^0.8.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~6.0",
+        "filp/whoops": "~2.0",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "barryvdh/laravel-debugbar": "^2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "Modules/"
+        },
+        "files": [
+            "app/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@gitlab.hegyd.net:hegyd/modules/hegyd-logs.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@gitlab.hegyd.net:hegyd/modules/hegyd-news.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@gitlab.hegyd.net:hegyd/modules/hegyd-uploads.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@gitlab.hegyd.net:hegyd/modules/hegyd-xss-protection.git"
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/plans",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/pages",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/ecommerce",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/faqs",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/seos",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "modules/hegyd/permissions",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
