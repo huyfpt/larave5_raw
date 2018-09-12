@@ -4,8 +4,15 @@
      */
     $('textarea.summernote').summernote({
         lang: 'fr-FR',
-        height: 300,
+        height: ($(window).height() - 300),
         dialogsInBody: true,
+        callbacks: {
+            onImageUpload: function(files){
+                that = $(this);
+                model = $('#plans_form').attr('id').replace('_form', '');
+                ajaxUploadImage(files[0], that, model);
+            }
+        },
     });
 
     $('.date').datepicker({
@@ -115,7 +122,7 @@
         language: 'fr',
         multiple: false,
         closeOnSelect: true,
-        allowClear: true,
+        allowClear: false,
         maximumInputLength: 20,
         ajax: {
             url: "/admin/plans/address/postcode",

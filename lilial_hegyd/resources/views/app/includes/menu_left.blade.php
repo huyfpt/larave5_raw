@@ -147,7 +147,7 @@
                             <li class="link-club">
                                 <a  href="{!! route('admin.plans.index') !!}"
                                     {!! Html::active(route('admin.plans.index', [], false).'*') !!}>
-                                    Bons Plans
+                                    @lang('hegyd-plans::plans.title.index')
                                 </a>
                             </li>
                             @endif
@@ -155,7 +155,7 @@
                             <li class="link-club">
                                 <a  href="{!! route('admin.plans_category.index') !!}"
                                     {!! Html::active(route('admin.plans_category.index', [], false).'*') !!}>
-                                    Catégorie Bons Plans
+                                    @lang('hegyd-plans::plans_categories.title.index')
                                 </a>
                             </li>
                             @endif
@@ -164,14 +164,14 @@
                             <li class="link-club">
                                 <a  href="{!! route('admin.news.index') !!}"
                                     {!! Html::active(route('admin.news.index', [], false).'*') !!}>
-                                    Actualités
+                                    @lang('hegyd-news::news.title.index')
                                 </a>
                             </li>
                             @endif
                             <li class="link-club">
                                 <a  href="{!! route('admin.news_category.index') !!}"
                                     {!! Html::active(route('admin.news_category.index', [], false).'*') !!}>
-                                    Catégorie Actualités
+                                    @lang('hegyd-news::news_categories.title.index')
                                 </a>
                             </li>
                         </ul>

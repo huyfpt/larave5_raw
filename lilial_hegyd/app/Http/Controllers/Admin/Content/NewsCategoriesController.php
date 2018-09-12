@@ -54,6 +54,9 @@ class NewsCategoriesController extends AbstractBackendController
                     'title'     => 'hegyd-news::news_categories.field.name',
                     'type'      => 'text',
                     'filterKey' => 'name',
+                    'route'     => config('hegyd-news.routes.backend.news_category.edit'),
+                    'route_id'  => 'id',
+                    'callBack'  => 'printLink',
                     'class_row' => 'text-left',
                 ],
                 'id'     => [

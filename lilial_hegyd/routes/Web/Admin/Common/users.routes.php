@@ -105,4 +105,6 @@ Route::group(['as' => 'users.', 'prefix' => 'utilisateurs', 'namespace' => 'Comm
         'uses' => 'UsersController@logoutAs',
         'as'   => 'logoutas',
     ]);
+
+    Route::get('/address/cities', 'UsersController@ajaxCities');
 });

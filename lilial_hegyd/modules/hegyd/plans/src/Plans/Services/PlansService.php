@@ -15,7 +15,7 @@ class PlansService
     // Containing our $repository to make all our database calls to
     protected $repository;
 
-    public function __construct(plansRepositoryInterface $repository)
+    public function __construct(PlansRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
@@ -58,7 +58,7 @@ class PlansService
 
     public function populatePostCode()
     {
-        $post_code = City::select('zip')->distinct('zip')->limit(20)->get();
+        $post_code = City::select('zip')->distinct('zip')->limit(20)->pluck('zip');
 
         return $post_code;
     }
@@ -67,7 +67,7 @@ class PlansService
     {
         $query = City::select('zip')->distinct('zip');
         if (!empty($keyword)) {
-            $post_code = $query->where('zip', 'LIKE', '%'.$keyword.'%')->limit(20)->get();
+            $post_code = $query->where('zip', 'LIKE', '%'.$keyword.'%')->limit(20)->pluck('zip');
         }
         else
         {
@@ -77,7 +77,7 @@ class PlansService
         if(!empty($post_code))
         {
             $post_code = $post_code->map(function ($item) {
-                return ['id' => $item['zip'], 'text' => $item['zip']];
+                return ['id' => $item, 'text' => $item];
             });
         }
 

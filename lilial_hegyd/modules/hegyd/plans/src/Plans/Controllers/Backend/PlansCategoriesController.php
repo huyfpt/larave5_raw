@@ -48,6 +48,9 @@ class PlansCategoriesController extends AbstractBackendController
                     'title'     => 'hegyd-plans::plans_categories.field.name',
                     'type'      => 'text',
                     'filterKey' => 'name',
+                    'route'     => config('hegyd-plans.routes.backend.plans_category.edit'),
+                    'route_id'  => 'id',
+                    'callBack'  => 'printLink',
                     'class_row' => 'text-left',
                 ],
                 'id'     => [
@@ -162,4 +165,5 @@ class PlansCategoriesController extends AbstractBackendController
 
         return $vars;
     }
+
 }

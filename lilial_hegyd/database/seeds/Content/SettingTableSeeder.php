@@ -278,9 +278,9 @@ class SettingTableSeeder extends Seeder
                 'category_id'  => 5,
                 'position'     => 1,
                 'type'         => Setting::TYPE_IMAGE,
-                'name'         => 'Logo carré',
-                'key'          => 'visual.logo',
-                'default'      => '/app/img/default/logo-squared.png',
+                'name'         => 'Logo',
+                'key'          => 'visual.logo_frontend',
+                'default'      => '/app/img/default/logo.png',
                 'is_reference' => true
             ],
             [
@@ -288,14 +288,24 @@ class SettingTableSeeder extends Seeder
                 'category_id'  => 5,
                 'position'     => 2,
                 'type'         => Setting::TYPE_IMAGE,
-                'name'         => 'Logo large',
+                'name'         => 'Logo BO',
+                'key'          => 'visual.logo',
+                'default'      => '/app/img/default/logo-squared.png',
+                'is_reference' => true
+            ],
+            [
+                'category_key' => 'visuals',
+                'category_id'  => 5,
+                'position'     => 3,
+                'type'         => Setting::TYPE_IMAGE,
+                'name'         => 'Logo connexion',
                 'key'          => 'visual.logo_large',
                 'default'      => '/app/img/default/logo-large.png',
                 'is_reference' => true
             ],
             [
                 'category_key' => 'visuals',
-                'position'     => 3,
+                'position'     => 4,
                 'type'         => Setting::TYPE_IMAGE,
                 'name'         => 'Image de fond pour la connexion',
                 'key'          => 'visual.auth_background',
@@ -304,7 +314,7 @@ class SettingTableSeeder extends Seeder
             ],
             [
                 'category_key' => 'visuals',
-                'position'     => 4,
+                'position'     => 5,
                 'type'         => Setting::TYPE_IMAGE,
                 'name'         => 'Icône du site (favicon)',
                 'key'          => 'visual.favicon',

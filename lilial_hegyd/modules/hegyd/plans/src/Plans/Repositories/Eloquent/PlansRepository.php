@@ -114,11 +114,15 @@ class PlansRepository extends Repository implements PlansRepositoryInterface
         return $plans;
     }
 
-    public function getRecentPlans()
+    public function getRecentPlans($limit = 3)
     {
-        $plans = $this->_getActive();
+        $plans = $this->_getActive()
+                      ->where('avantage', true)
+                      ->where('visibility', true)
+                      ->where('start_at', '<=', Carbon::now())
+                      ->where('end_at', '>=', Carbon::now());
         $plans->orderBy('created_at', 'desc')
-            ->limit(2);
+            ->limit($limit);
 
         return $plans->get();
     }

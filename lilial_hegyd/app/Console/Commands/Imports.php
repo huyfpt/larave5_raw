@@ -17,7 +17,7 @@ class Imports extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Import product from file import.zip';
     /**
      * Create a new command instance.
      *
@@ -37,6 +37,7 @@ class Imports extends Command
         set_time_limit(0);
         ini_set('max_execution_time', 0);
         $filename = $this->argument('file_path');
+
         if (!file_exists($filename) || is_dir($filename)) {
             $this->error(__(':file: Invalid import file path', ['file' => $filename]));
         }

@@ -12,7 +12,7 @@
     <!-- END-->
     <div class="slider-item"><img src="{{ asset('front/uploads/home-banner-1.jpg') }}" alt="">
       <!-- IMG FOR PC-->
-      <div style="background-image: url('{{$actual_link}}/front/uploads/home-banner-1.jpg')" class="thumb-mb"></div>
+      <div style="background-image: url(' {{ asset('front/uploads/home-banner-1.jpg') }} ')" class="thumb-mb"></div>
       <!-- IMG FOR MOBILE-->
       <div class="slider-info">
         <h3 class="ttl">41ème Congrès de la SIFUD-PP</h3>

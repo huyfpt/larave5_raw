@@ -26,7 +26,7 @@ input[type="text"].form-control:-moz-placeholder {
 .min-head .coverHead {
 	position: absolute;
 	top: 0; left: 0; right: 0;
-	bottom: 40%;
+	bottom: 48%;
 	background:url(/app/img/min-head.jpg) no-repeat center center;
 	-webkit-background-size: cover;
 	background-size: cover;
@@ -1636,10 +1636,8 @@ li.last .number {
 .bg-color-5 {
     background-color: #038df3 !important;
 }
-
-
 .white-box {
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 .box-kpi h3 {
   font-size: 18px

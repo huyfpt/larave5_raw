@@ -5,14 +5,14 @@ return [
         'index'      => 'Faq',
         'heading'    => 'Catégorie principate',
         'faq'        => 'Création Faq',
-        'show'       => 'Actualité :name',
+        'show'       => 'Actualité :title',
         'edit'       => 'Édition de l\'actualité :name',
         'management' => 'Articles FAQ',
     ],
     'field'   => [
         'title'              => 'Nom',
         'slug'              => 'Slug',
-        'active'            => 'Active',
+        'active'            => 'Actif',
         'status'            => 'Statut',
         'category'          => 'Catégorie',
         'category_id'       => 'Catégorie',
@@ -25,10 +25,11 @@ return [
         'roles'             => 'Role(s) autorisé(s)',
         'enable_comment'    => 'Autoriser les commentaires sur l\'article ?',
         'count_like'        => 'Nombre de "j\'aime"',
-        'roles'             => 'Roles',
-        'meta_title'        => 'Meta title',
-        'meta_description'  => 'Meta description',
-        'meta_keyword'      => 'Meta keyword'
+        'roles'             => 'Rôles',
+        'meta_title'        => 'Méta Titre',
+        'meta_description'  => 'Méta La Description ',
+        'meta_keyword'      => 'Méta Mot-Clé',
+        'meta_robots'       => 'Méta Des Robots'
     ],
     'label'   => [
         'start_at' => 'Si la date n\'est pas renseignée, elle sera publiée si le champs \'active\' est coché.',

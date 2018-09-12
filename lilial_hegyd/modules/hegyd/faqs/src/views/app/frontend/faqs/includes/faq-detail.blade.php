@@ -1,3 +1,16 @@
+<style>
+  .img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+
 <div class="blk-main-content">
   <div class="product-detail-info pad-80">
     <div class="container">
@@ -12,7 +25,9 @@
               {!!$faq->content!!}
             </div>
             <div class="desc bt-30">
-              <img src="{{ $faq->media() }}" alt="">
+              <div class="col-md-12 col-sm-12">
+                <img src="{{ $faq->media() }}" alt="" class="img-responsive">
+              </div>
             </div>
             <div class="desc bt-30">
               <span>Date de début de publication :&nbsp;</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $faq->start_at)->format('d/m/Y') }}

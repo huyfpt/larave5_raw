@@ -61,10 +61,10 @@ class PagesTableSeeder extends Seeder
                     'status'      => 1,
                 ],
                 [
-                    'title'        => 'Recrutement',
-                    'content'   => '<p>recrutement pages</p>',
-                    'description' => 'view recrutement page',
-                    'slug' => 'recrutement',
+                    'title'        => 'CGU',
+                    'content'   => '<p>CGU</p>',
+                    'description' => 'CGU',
+                    'slug' => 'cgu',
                     'status'      => 1,
                 ],
                 

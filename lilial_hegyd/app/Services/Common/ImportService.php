@@ -54,11 +54,11 @@ class ImportService
 
         // check valid
         $mimeTypeZip = mime_content_type($filename);
-        if ($extZip != 'zip' || !in_array($mimeTypeZip, $mimeTypesZip))
+/*        if ($extZip != 'zip' || !in_array($mimeTypeZip, $mimeTypesZip))
             return [
                 'message' => "Upload Fail: Unsupported file format!",
                 'alert-type' => 'error',
-            ];
+            ];*/
 
         // path
         $tempFolder = uniqid();
@@ -72,7 +72,7 @@ class ImportService
         // zip
         $zip = new \ZipArchive;
         if ($zip->open($filename) === true) {
-            
+
             if ($cli) echo __('Extracting ZIP archive..');
             $zip->extractTo($extractPath);
             $zip->close();
@@ -81,14 +81,13 @@ class ImportService
 
             //get file excel and check valid 
             $excelPath = $extractPath . '/produits.xlsx';
-            if (!file_exists($excelPath))
-                $excelPath = $extractPath . '/produits.xls';
             if (!file_exists($excelPath)) {
                 return [
                     'message' => __('file_not_exist'),
                     'alert-type' => 'error',
                 ];
             }
+            
             $ext = pathinfo($excelPath, PATHINFO_EXTENSION);
             $fileSize = filesize($excelPath);
             if ($fileSize == 0)
@@ -101,7 +100,6 @@ class ImportService
             //$excelPath = $realPath .'public/imports/5b77c8025f6cb/produits.xlsx';
             //$imagePath = $realPath .'public/imports/5b77c8025f6cb/images/';
             $data = Excel::load($excelPath)->get()->toArray();
-
             $counter = -1;
             $updateCounter = 0;
             $countError = 0;

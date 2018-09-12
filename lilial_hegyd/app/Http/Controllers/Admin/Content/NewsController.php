@@ -49,6 +49,7 @@ class NewsController extends AbstractBackendController
             'select'           => [
                 $table . '.id',
                 $table . '.active',
+                $table . '.visibility',
                 $table . '.name',
                 $table . '.category_id',
                 $table . '.author_id',
@@ -96,6 +97,15 @@ class NewsController extends AbstractBackendController
                     'callBack'      => 'printLink',
                     'class'         => 'col-md-2',
                     'class_row'     => 'text-left',
+                ],
+                'visibility'          => [
+                    'title'         => 'hegyd-news::news.field.visibility',
+                    'type'          => 'select',
+                    'listPopulator' => 'populateVisible',
+                    'filterKey'     => $table . '.visibility',
+                    'callBack'      => 'printVisible',
+                    'class'         => 'col-md-1',
+                    'class_row'     => 'text-center',
                 ],
                 'created_at'          => [
                     'title'     => 'hegyd-news::news.field.created_at',
@@ -185,6 +195,15 @@ class NewsController extends AbstractBackendController
             $datas['author_id'] = auth()->user()->id;
         }
 
+        if ( ! isset($datas['visibility']) || $datas['visibility'] == 0)
+        {
+            $datas['visibility'] = 1;
+        }
+        else
+        {
+            $datas['visibility'] = 0;
+        }
+
         /*if(config('hegyd-news.enable_comment')) {
             if ( ! isset($datas['enable_comment']))
             {
@@ -234,5 +253,11 @@ class NewsController extends AbstractBackendController
     public function destroy($id)
     {
         return $this->executeDelete($id);
+    }
+
+    public function populateVisible()
+    {
+        $visible = ['Privé', 'Public'];
+        return $visible;
     }
 }

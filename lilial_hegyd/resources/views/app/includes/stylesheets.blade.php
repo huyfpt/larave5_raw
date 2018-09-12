@@ -21,5 +21,7 @@
 
 {!! Html::style('/vendor/hegyd/plans/css/form.css') !!}
 
+<!-- {!! Html::style('/app/css/summernote-ext-resized-data-image.css') !!} -->
+
 
 @stack('stylesheets')

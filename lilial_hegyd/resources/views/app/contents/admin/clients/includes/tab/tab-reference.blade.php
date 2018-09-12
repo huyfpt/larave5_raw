@@ -26,6 +26,15 @@
             {!! Form::errorMsg('ambassador', $errors) !!}
         </div>
     </div>
+    <div class="form-group {!! Form::hasError('username', $errors) !!}">
+        <label class="control-label col-md-2" for="username">
+            @lang('users.fields.username') <i class="required-field">*</i>
+        </label>
+        <div class="col-md-9">
+            {!! Form::text('username', $model->user->username, ['class' => 'form-control', 'id'=>'username', 'required']) !!}
+            {!! Form::errorMsg('username', $errors) !!}
+        </div>
+    </div>
     <div class="form-group {!! Form::hasError('type', $errors) !!}">
         <label class="control-label col-md-2" for="type">
             @lang('clients.fields.type') <i class="required-field">*</i>
@@ -67,7 +76,7 @@
             @lang('users.fields.email') <i class="required-field">*</i>
         </label>
         <div class="col-md-9">
-            {!! Form::text('email', $model->user->email, ['class' => 'form-control', 'id'=>'email', 'required']) !!}
+            {!! Form::text('email', $model->user->email, ['class' => 'form-control', 'id'=>'email', 'required', 'readonly']) !!}
             {!! Form::errorMsg('email', $errors) !!}
         </div>
     </div>

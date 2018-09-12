@@ -21,13 +21,13 @@
     <div class="row">
         <ul class="nav nav-tabs" id="formTab">
             <li class="active"><a href="#tabReference" data-toggle="tab">
-                @lang('hegyd-plans::plans.label.tab_reference')
+                @lang('hegyd-plans::plans.labels.tab_reference')
             </a></li>
             <li><a href="#tabImages" data-toggle="tab">
-                @lang('hegyd-plans::plans.label.tab_images')
+                @lang('hegyd-plans::plans.labels.tab_images')
             </a></li>
             <li><a href="#tabSeo" data-toggle="tab">
-                @lang('hegyd-plans::plans.label.tab_seo')
+                @lang('hegyd-plans::plans.labels.tab_seo')
             </a></li>
         </ul>
 
@@ -77,4 +77,6 @@
     {!! Html::script('/vendor/hegyd/plans/js/plans/form.js') !!}
     {!! Html::script('/vendor/hegyd/plans/js/plans/changetoslug.js') !!}
     {!! Html::script('/vendor/hegyd/plans/js/plans/validate.js') !!}
+
+    {!! Html::script('/app/js/summernote/summernote-ajax-upload-image.js') !!}
 @endpush

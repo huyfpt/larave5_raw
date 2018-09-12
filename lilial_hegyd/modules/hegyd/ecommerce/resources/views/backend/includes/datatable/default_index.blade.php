@@ -66,6 +66,16 @@
                                                 <li class="divider"></li>
                                             @endif
                                             <li>
+                                                @if(strtolower($action['route']) == 'import.zip')
+                                                    <a class="bulkAction import-modal"
+                                                        href="#"
+                                                        data-confirm="{{ isset($action['confirm']) ? $action['confirm'] : false }}"
+                                                        data-confirm-title="import.zip"
+                                                        data-confirm-text="{{ isset($action['text']) ? $action['text'] : false }}"
+                                                        data-ajax="{{ isset($action['ajax']) ? $action['ajax'] : true }}" >
+                                                        <i class="{{ $action['icon'] }}"></i> {{ $action['text'] }}
+                                                    </a>
+                                                @else
                                                 <a class="bulkAction"
                                                    href="{{  route($config['prefixes']['route'] . $action['route']) }}"
                                                    data-confirm="{{ isset($action['confirm']) ? $action['confirm'] : false }}"
@@ -74,6 +84,7 @@
                                                    data-ajax="{{ isset($action['ajax']) ? $action['ajax'] : true }}" >
                                                     <i class="{{ $action['icon'] }}"></i> {{ $action['text'] }}
                                                 </a>
+                                                @endif
                                             </li>
                                         @endif
                                     @endforeach
@@ -100,11 +111,13 @@
     </div>
 
 @include('app.includes.datatable.delete_modal')
+@include('hegyd-ecommerce::backend.includes.form.import_product_modal')
 
 @endsection
 @push('stylesheets')
 {!! Html::style('/vendor/hegyd/ecommerce/dependencies/sweetalert/dist/sweetalert.css') !!}
 {!! Html::style('/vendor/hegyd/ecommerce/dependencies/toastr/toastr.min.css') !!}
+{!! Html::style('/vendor/hegyd/ecommerce/css/index.css') !!}
 @endpush
 @push('scripts')
 {!! Html::script('/vendor/hegyd/ecommerce/dependencies/sweetalert/dist/sweetalert.min.js') !!}

@@ -4,4 +4,6 @@
 interface SettingRepositoryInterface
 {
     public function getAllByTabs();
+
+    public function getAllSetting();
 }

@@ -181,6 +181,9 @@ Route::group(['namespace' => config('hegyd-faqs.controllers.backend_namespace'),
     ]);
 });
 
+/**
+ * frontend route for faqs
+ */
 Route::group(['namespace' => config('hegyd-faqs.controllers.frontend_namespace')], function ()
 {
     Route::get('/faqs', [
@@ -205,6 +208,7 @@ Route::group(['namespace' => config('hegyd-faqs.controllers.frontend_namespace')
 
     Route::group(['as' => 'frontend.comments.', 'prefix' => '/faqs/{id}/comment'], function ()
     {
+        /*
         Route::get('/edition/{comment_id}', [
             'as'   => 'edit-from-modal',
             'uses' => 'CommentsController@editComment',
@@ -238,7 +242,18 @@ Route::group(['namespace' => config('hegyd-faqs.controllers.frontend_namespace')
             'as'   => 'report',
             'uses' => 'CommentsController@reportComment',
         ]);
+         */
+        
     });
+    Route::post('/newsletters/create-from-modal', [
+        'as'   => config('hegyd-faqs.routes.frontend.newsletters.store'),
+        'uses' => 'NewslettersController@store',
+    ]);
+
+    Route::post('/newsletters/create-from-form', [
+        'as'   => config('hegyd-faqs.routes.frontend.newsletters.create-from-form'),
+        'uses' => 'NewslettersController@ajaxSave',
+    ]);
 });
 
 Route::group(['as' => 'roles.', 'prefix' => 'roles', 'namespace' => 'ACL'], function ()

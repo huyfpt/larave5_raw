@@ -32,6 +32,11 @@
                             </div>
                             @php
                                 unset($categories[$model->id]);
+                                $childCategory = Hegyd\Plans\Models\PlansCategory::where('parent_id', '<>', 0)->pluck('id');
+                                foreach($childCategory as $item)
+                                {
+                                    unset($categories[$item]);
+                                }
                             @endphp
                             <div class="col-md-10">
                                 {!! Form::select('parent_id', $categories, $category_selected, ['class' => 'form-control select2', 'required']) !!}

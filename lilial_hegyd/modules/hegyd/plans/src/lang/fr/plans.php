@@ -2,9 +2,9 @@
 
 return [
     'title'   => [
-        'index'      => 'Bons Plans',
+        'index'      => 'Bons plans',
         'new'        => 'Création d\'une bons plans',
-        'show'       => 'Bons Plans :name',
+        'show'       => 'Bons plans :name',
         'edit'       => 'Édition de bons plans :name',
         'management' => 'Bons plans',
     ],
@@ -20,7 +20,7 @@ return [
         'visibility'        => 'Visibilité',
         'created_at'        => 'Créé à',
         'parenting'         => 'Thématique Parente',
-        'avantage'          => 'Advantage Lilial',
+        'avantage'          => 'Avantage Lilial',
         'url'               => 'Url',
         'slug'              => 'Slug',
         'meta_title'        => 'Méta titre',
@@ -28,7 +28,7 @@ return [
         'meta_keyword'      => 'Méta mot-clé',
         'meta_robots'       => 'Méta des robots',
     ],
-    'label'   => [
+    'labels'   => [
         'start_at' => 'Si la date n\'est pas renseignée, elle sera publiée si le champs \'active\' est coché.',
         'end_at'   => 'Si la date n\'est pas renseignée, elle sera publiée si le champs \'active\' est coché.',
 

@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\CreateSiteMap::class,
         Commands\Imports::class,
+        //Commands\Download::class,
     ];
 
     /**

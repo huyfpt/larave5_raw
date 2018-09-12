@@ -5,7 +5,7 @@ namespace Hegyd\Faqs\Services;
 
 use Hegyd\Faqs\Repositories\Contracts\FaqsRepositoryInterface;
 use Hegyd\Faqs\Repositories\Eloquent\FaqsRepository;
-
+use Hegyd\Faqs\Models\Faqs;
 class FaqsService
 {
     // Containing our $repository to make all our database calls to
@@ -39,5 +39,20 @@ class FaqsService
         });
 
         return $referrers;
+    }
+
+    /**
+     * Get the meta robots
+     * @return array
+     */
+    public function metaRobots()
+    {
+        $array = [
+            Faqs::INDEX_FOLLOW     => Faqs::INDEX_FOLLOW,
+            Faqs::NOINDEX_FOLLOW   => Faqs::NOINDEX_FOLLOW,
+            Faqs::INDEX_NOFOLLOW   => Faqs::INDEX_NOFOLLOW,
+            Faqs::NOINDEX_NOFOLLOW => Faqs::NOINDEX_NOFOLLOW,
+        ];
+        return $array;
     }
 }

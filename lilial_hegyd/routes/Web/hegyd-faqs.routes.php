@@ -199,6 +199,15 @@ Route::group(['namespace' => config('hegyd-faqs.controllers.frontend_namespace')
         'as'   => config('hegyd-faqs.routes.frontend.faqs_category.show'),
         'uses' => 'FaqsCategoriesController@show',
     ])->where(['slug' => '(.*)', 'id' => '[0-9]+']);
+    Route::post('/newsletters/create-from-modal', [
+        'as'   => config('hegyd-faqs.routes.frontend.newsletters.create-from-modal'),
+        'uses' => 'NewslettersController@store',
+    ]);
+
+    Route::post('/newsletters/create-from-form', [
+        'as'   => config('hegyd-faqs.routes.frontend.newsletters.create-from-form'),
+        'uses' => 'NewslettersController@ajaxSave',
+    ]);
 });
 
 Route::group(['as' => 'roles.', 'prefix' => 'roles', 'namespace' => 'ACL'], function () {

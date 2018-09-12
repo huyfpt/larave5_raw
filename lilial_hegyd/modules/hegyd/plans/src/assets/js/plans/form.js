@@ -4,8 +4,15 @@
      */
     $('textarea.summernote').summernote({
         lang: 'fr-FR',
-        height: 300,
+        height: ($(window).height() - 300),
         dialogsInBody: true,
+        callbacks: {
+            onImageUpload: function(files){
+                that = $(this);
+                model = $('#plans_form').attr('id').replace('_form', '');
+                ajaxUploadImage(files[0], that, model);
+            }
+        },
     });
 
     $('.date').datepicker({
@@ -17,6 +24,10 @@
     });
 
     $('select[name="category_id"]').select2({
+        language: 'fr'
+    });
+
+    $('select[name="address[zip]"]').select2({
         language: 'fr'
     });
 
@@ -107,51 +118,22 @@
 
     Modal.init('#modal-category', '[name="category_id"]');
 
-    $('.save-btn, .save-and-close-btn, .save-and-new-btn').click(function (e){
-        var error = 0;
-
-        $(':input[required]', '#plans_form').each(function(){
-            if($(this).val() == ''){
-
-                if(error == 0){ 
-                    $(this).focus();
-                    var tab = $(this).closest('.tab-pane').attr('id');
-                    $('#formTab a[href="#' + tab + '"]').tab('show');
-                }
-                error += 1;
-
-                var name = $(this).attr('name');
-
-                alert_error = '<ul><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Le champ '+ name +' est obligatoire.</font></font></li></ul>';
-                if ($(this).attr('name') == 'visual') {
-                    var file_input = $(this).parent().parent();
-                    file_input.siblings('.help-block').html(alert_error);
-                    file_input.parent().parent().addClass('has-error');
-                }
-                else {
-                    $(this).siblings('.help-block').html(alert_error);
-                    $(this).parent().parent().addClass('has-error');
-                }
-            }
-            var input_zip = $('input[name="address[zip]"]');
-            if(input_zip.val().length != 5) {
-                zip_error = '<ul><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Les codes postaux doivent comporter 5 chiffres.</font></font></li></ul>';
-                error +=1 ;
-                input_zip.siblings('.help-block').html(zip_error);
-                input_zip.parent().parent().addClass('has-error');
-                input_zip.focus();
-            }
-        });
-        
-        
-        if (error != 0) {
-            var message = error + '  champs ne sont pas valides. Ils sont entourés de rouge';
-            toastr.error(message);
-            return false;
-        }
-
-        return true;
-
+    $('#plan_zip').select2({
+        language: 'fr',
+        multiple: false,
+        closeOnSelect: true,
+        allowClear: false,
+        maximumInputLength: 20,
+        ajax: {
+            url: "/admin/plans/address/postcode",
+            dataType: 'json',
+            processResults: function (data, params) {
+              return {
+                results: data,
+              };
+            },
+            cache: true
+        },
     });
 
 })(jQuery)

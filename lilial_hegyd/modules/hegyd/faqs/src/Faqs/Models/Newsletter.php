@@ -12,7 +12,7 @@ class Newsletter extends AbstractModel
 
     protected $fillable = [
         'email',
-        'first_name',
+        // 'first_name',
         'last_name',
         'active',
         'created_at'
@@ -33,9 +33,7 @@ class Newsletter extends AbstractModel
         $required_if_not_exists = $this->exists ? '' : '|required';
 
         $rules = [
-            'first_name'    => 'required|max:50',
-            'last_name'     => 'required|max:50',
-            'email'           => 'email'
+            'email' => 'required|email|unique:newsletters'
         ];
 
         return $rules;
@@ -66,6 +64,19 @@ class Newsletter extends AbstractModel
         }
 
         return $is_active;
+    }
+
+    /**
+     * @param bool $plurial
+     * @return string
+     */
+    public function getName($plurial = false)
+    {
+        if ($plurial)
+            return 'newsletters';
+
+
+        return 'newsletter';
     }
 
 }

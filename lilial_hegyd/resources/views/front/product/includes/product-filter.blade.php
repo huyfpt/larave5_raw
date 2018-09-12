@@ -1,3 +1,4 @@
+      <?php $keyword = !empty($keyword) ? $keyword : '' ?>
       <div class="product-filter pad-80">
         <div class="container">
           <h2 class="blk-title">Catégorie principale</h2>

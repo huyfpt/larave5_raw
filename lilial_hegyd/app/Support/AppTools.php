@@ -429,4 +429,17 @@ class AppTools
 
     }
 
+    public function ajaxUploadImageSummernote(\Illuminate\Http\Request $request)
+    {
+        $model = $request['model'];
+        $file = $request->file('file');
+        
+        $destinationPath = app_storage_path().'/app/public/'.$model;
+        $filename = $file->getClientOriginalName();
+
+        $file->move($destinationPath, $filename);
+
+        return response()->json(['name' => $filename]);
+    }
+
 }

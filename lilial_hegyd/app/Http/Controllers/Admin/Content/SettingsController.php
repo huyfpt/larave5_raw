@@ -5,15 +5,19 @@ use App\Facades\AppCacheManager;
 use App\Facades\AppTools;
 use App\Http\Controllers\AbstractAppController;
 use App\Http\Controllers\Traits\Apiable;
-use App\Http\Controllers\Traits\Uploadable;
+#use App\Http\Controllers\Traits\Uploadable;
 use App\Models\Common\Company;
-use App\Models\EDM\Upload;
+#use App\Models\EDM\Upload;
 use App\Repositories\Contracts\Content\SettingCategoryRepositoryInterface;
 use App\Repositories\Contracts\Content\SettingRepositoryInterface;
 use Hegyd\Logs\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Models\Content\Setting;
+use Illuminate\Support\Facades\Cache;
+
+use Hegyd\Uploads\Controllers\Traits\Uploadable;
+use Hegyd\Uploads\Models\Upload;
 
 class SettingsController extends AbstractAppController
 {
@@ -120,6 +124,7 @@ class SettingsController extends AbstractAppController
             event(new GenericEvent("settings.update", 'L\'utilisateur ' . auth()->user()->fullname() . ' a modifié les paramètres ' . implode(', ', $updated_settings) . '.'));
 
             AppCacheManager::clearAll();
+            Cache::forget('settings');
 
         } else
         {

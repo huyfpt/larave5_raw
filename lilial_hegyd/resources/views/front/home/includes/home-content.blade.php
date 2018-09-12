@@ -17,28 +17,28 @@
           <div class="col-md-7 col-sm-12 ab-left">
             <ul class="lst">
               <li class="clearfix">
-                <div class="ab-icon"><span>1</span><i style="background-image: url('{{$actual_link}}/front/uploads/icons/ico-text.png')" class="ico"></i></div>
+                <div class="ab-icon"><span>1</span><i style="background-image: url('{{ asset('front/uploads/icons/ico-text.png') }} ')" class="ico"></i></div>
                 <div class="ab-info">
                   <h4 class="sml-ttl">Prescription médicale</h4>
                   <div class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus i</div>
                 </div>
               </li>
               <li class="clearfix">
-                <div class="ab-icon"><span>2</span><i style="background-image: url('{{$actual_link}}/front/uploads/icons/ico-member.png')" class="ico"></i></div>
+                <div class="ab-icon"><span>2</span><i style="background-image: url(' {{ asset('front/uploads/icons/ico-member.png') }} ')" class="ico"></i></div>
                 <div class="ab-info">
                   <h4 class="sml-ttl">Commande avec le conseiller</h4>
                   <div class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus i</div>
                 </div>
               </li>
               <li class="clearfix">
-                <div class="ab-icon"><span>3</span><i style="background-image: url('{{$actual_link}}/front/uploads/icons/ico-gift.png')" class="ico"></i></div>
+                <div class="ab-icon"><span>3</span><i style="background-image: url(' {{ asset('front/uploads/icons/ico-gift.png') }} ')" class="ico"></i></div>
                 <div class="ab-info">
                   <h4 class="sml-ttl">Livraison</h4>
                   <div class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus i</div>
                 </div>
               </li>
               <li class="clearfix">
-                <div class="ab-icon"><span>4</span><i style="background-image: url('{{$actual_link}}/front/uploads/icons/ico-tele.png')" class="ico"></i></div>
+                <div class="ab-icon"><span>4</span><i style="background-image: url(' {{ asset('front/uploads/icons/ico-tele.png') }} ')" class="ico"></i></div>
                 <div class="ab-info">
                   <h4 class="sml-ttl">Télétransmission administrative</h4>
                   <div class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus i</div>
@@ -56,7 +56,7 @@
         <div class="modal-dialog">
           <div class="modal-content"><span data-dismiss="modal" aria-label="Close" class="close"><i class="ico ico-close d-inline-block"></i></span>
             <div class="modal-body"> 
-              <iframe src="https://www.youtube.com/embed/PcNRXlhc0nc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="youtube_player_iframe"></iframe>
+              <iframe src="https://www.youtube.com/embed/cIT1HoQSBL8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="youtube_player_iframe"></iframe>
             </div>
           </div>
         </div>

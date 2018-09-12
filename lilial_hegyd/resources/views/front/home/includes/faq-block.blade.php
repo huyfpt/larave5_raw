@@ -10,11 +10,10 @@
 			</div>
 		  <!-- END -->
 		  @if(count($faqCategories))
-		  @foreach($faqCategories as $category)
+		  	@foreach($faqCategories as $category)
 			<div class="form-group"><a href="{{$category->url()}}" class="cat-item d-table">
 				<div class="d-table-cell">
-					<img class="ico" src="{{ $category->media() }}" alt="">
-					{{-- <div style="background-image: url('{{$actual_link}}/front/uploads/icons/uro_icon@2x.png')" class="ico"></div> --}}
+					<img class="ico" src="{{ $category->media() }}" alt="icon category">
 				</div>
 				<div class="d-table-cell">
 					<h3 class="ttl">{{$category->label}}</h3>

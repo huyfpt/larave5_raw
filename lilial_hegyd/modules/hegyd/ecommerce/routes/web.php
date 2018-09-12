@@ -138,6 +138,11 @@ Route::group([
             'as'   => config('hegyd-ecommerce.routes.backend.product.excel'),
             'uses' => 'ProductsController@exportExcel',
         ]);
+
+        Route::post('/import-zip', [
+            'as'   => config('hegyd-ecommerce.routes.backend.product.import-zip'),
+            'uses' => 'ProductsController@importZip',
+        ]);
     });
 
 

@@ -155,6 +155,10 @@ return [
                 'show' => 'faqs.show',
                 // 'like' => 'faqs.like',
             ],
+            'newsletters' => [
+                'create-from-modal' => 'frontend.newsletters.store',
+                'create-from-form'  => 'frontend.newsletters.ajaxSave'
+            ],
             // 'comments' => [
             //     'edit-from-modal'   => 'frontend.comments.edit-from-modal',
             //     'update-from-modal' => 'frontend.comments.update-from-modal',

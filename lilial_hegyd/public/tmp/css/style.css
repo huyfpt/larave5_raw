@@ -108,7 +108,7 @@ blockquote {
   border: 1px solid rgba(120, 130, 140, 0.13);
 }
 p {
-  line-height: 0.5;
+  line-height: 1.6;
 }
 b {
   font-weight: 600;
@@ -15746,4 +15746,9 @@ ul.pro-amenities li span i {
 
 #contacts .shop{
   height: 170px;
+}
+
+.note-editable p {
+    line-height: 0.5;
+    text-transform: capitalize;
 }

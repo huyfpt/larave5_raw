@@ -154,6 +154,9 @@ return [
                 'show' => 'faqs.show',
                 // 'like' => 'faqs.like',
             ],
+            'newsletters' => [
+                'store' => 'user.newsletters.store'
+            ]
         ],
     ],
 

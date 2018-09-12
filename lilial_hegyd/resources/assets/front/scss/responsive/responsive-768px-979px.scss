@@ -23,6 +23,7 @@
             background-color: #001D57;
             padding: 50px 30px;
             width: 400px;
+            max-height: 475px;
             &.shw {
                 z-index: 10;
                 opacity: 1;
@@ -62,7 +63,7 @@
                 width: 132px;
                 margin-top: 0;
                 margin-left: 0;
-                margin-bottom: 20px;
+                margin-bottom: 0;
             }
             .hd_search {
                 margin-left: 0;
@@ -85,6 +86,53 @@
             &:hover {
                 background: #1f87ff;
                 color: #fff; 
+            }
+        }
+    }
+    .header-wrap {
+        .hd-club-wrap {
+            text-align: left;
+            margin-bottom: 20px;
+            .sub-menu {
+                top: 10px;
+                &::before {
+                    display: none;
+                }
+                li {
+                    padding: 10px !important;
+                }
+            }
+        }
+        .sub-menu {
+            position: relative;
+            min-width: auto;
+            background-color: transparent;
+            right: auto;
+            padding-left: 20px;
+            li {
+                border-color: #3D3D3D;
+                padding: 0 10px !important;
+                a {
+                    color: #fff;
+                    &:hover {
+                        color: $green;
+                    }
+                }
+            }
+        }
+        .menu {
+            .sub-menu {
+                right: auto;
+                transform: translateX(0);
+            }
+            li {
+                &.has-child {
+                    &:hover {
+                        .sub-menu {
+                            display: none;
+                        }
+                    }
+                }
             }
         }
     }
@@ -237,6 +285,9 @@
         }
     }
     .header-wrap {
+        .shw_menu {
+            display: block;
+        }
         .search-wrap {
             position: relative;
             top: auto;
@@ -250,13 +301,14 @@
             }
         }
         .hd_search {
-            position: absolute;
-            bottom: 65px;
-            left: 35px;
+            // position: absolute;
+            // bottom: 65px;
+            // left: 35px;
             &.active {
                 position: absolute;
                 left: auto;
                 right: 35px;
+                bottom: 65px;
             }
         }
     }

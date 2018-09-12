@@ -80,7 +80,7 @@ class LoginController extends Controller
 
         if($user->role_id == User::ROLE_CLIENT)
         {
-            return redirect('/');
+            return redirect('/profile');
         }
         else
         {

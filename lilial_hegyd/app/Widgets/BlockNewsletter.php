@@ -20,6 +20,7 @@ class BlockNewsletter extends AbstractWidget
     public function run()
     {
         //
+
         return view('widgets.block_newsletter', [
             'config' => $this->config,
         ]);

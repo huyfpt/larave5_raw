@@ -2,10 +2,10 @@
 
 return [
     'title'   => [
-        'index'      => 'Catégories',
+        'index'      => 'Catégories actualités',
         'show'       => 'Catégorie :name',
-        'show_news'  => 'Actualités catégorie :name',
-        'management' => 'Actualités catégories',
+        'show_news'  => 'Catégories actualités :name',
+        'management' => 'Catégories actualités',
         'new'        => 'Création d\'une catégorie',
         'edit'       => 'Édition de la catégorie :name',
     ],
@@ -32,7 +32,7 @@ return [
         'not_found'         => 'Catégorie introuvable.',
         'updated'           => 'Catégorie mise à jour.',
         'cannot_save'       => 'Une erreur s\'est produite pendant l\'enregistrement.',
-        'cannot_delete'     => 'Vous ne pouvez pas supprimer cette catégorie.',
+        'cannot_delete'     => 'Suppression impossible, cette catégorie contient des actualités  ou une catégorie parente.',
         'new_created'       => 'Nouvelle catégorie créée',
         'category_inactive' => 'Cette catégorie n\'est pas active, seules les personnes ayant les droits peuvent la visualiser.',
     ],

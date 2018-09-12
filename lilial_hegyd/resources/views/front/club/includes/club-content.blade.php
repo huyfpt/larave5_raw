@@ -1,10 +1,10 @@
   <div class="blk-main-content">
   <div class="blk-slider blk-page-banner"><img src="{{ asset('front/uploads/club-banner.png') }}" alt="">
     <!-- IMG FOR PC-->
-    <div style="background-image: url({{$actual_link}}/front/uploads/club-banner.png)" class="banner-thumb"></div>
+    <div style="background-image: url( {{ asset('front/uploads/club-banner.png') }} )" class="banner-thumb"></div>
     <!-- IMG FOR MOBILE-->
     <div class="page-banner-info">
-      <h1 class="ttl">Le club Lilial</h1><i style="background-image: url({{$actual_link}}/front/uploads/icons/ico-play.png)" class="ico"></i>
+      <h1 class="ttl">Le club Lilial</h1><i style="background-image: url( {{ asset('front/uploads/icons/ico-play.png') }} )" class="ico"></i>
     </div>
   </div>
   <!-- END: BANNER-->
@@ -25,21 +25,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus in nunc laoreet auctor. Curabitur ac commodo sem, quis tempus sem. Integer ligula dolor, luctus et bibendum eu, iaculis eu dolor. Aliquam auctor purus ipsum, quis consectetur est tincidunt at. Proin dignissim commodo arcu vitae consectetur.</p>
                 <p>Sed vitae purus nec purus tempor sagittis. Maecenas gravida tincidunt maximus. Mauris pretium augue hendrerit elit mollis condimentum. Pellentesque scelerisque consectetur libero quis vehicula. Vestibuludio elementum dapibus. Ut </p>
               </div>
-              <div class="lil-subscription">
-                <div class="row">
-                  <div class="col-md-4 col-sm-12 sub-title">
-                    <h3 class="ttl">Demande d'inscription au club Lilial</h3>
-                  </div>
-                  <!-- END : TITLE-->
-                  <div class="col-md-8 col-sm-12 sub-form">
-                    <form>
-                      <input type="text" placeholder="Adresse e-mail" class="sub-ipt">
-                      <button class="sub-btn">Inscription</button>
-                    </form>
-                  </div>
-                  <!-- END : FORM-->
-                </div>
-              </div>
+              @widget('newsletterWidget')
             </div>
           </div>
           <!-- END-->
@@ -137,7 +123,7 @@
         @foreach($news as $item)
           @php $count_news_slider ++; @endphp
           @if($count_news_slider <= 10)
-          <div class="nw-item"><a href="{{ url('club/news/'.$item->slug) }}" class="inner">
+          <div class="nw-item"><a href="{{ url('club/actualites/'.$item->slug) }}" class="inner">
               <figure class="nw-img"><img src="{{ asset($item->media('visual', $type=3, $width=313)) }}" alt=""></figure>
               <div class="nw-info">
                 <h3 class="nw-ttl">{{ $item->name }}</h3>
@@ -149,7 +135,7 @@
         @endforeach
       </div>
       <!-- END : SLIDE NEWS MOBILE-->
-      <div class="more text-center"><a href="{{ url('/club/news') }}" class="btn btn-green">Voir tous les bons actualies</a></div>
+      <div class="more text-center"><a href="{{ url('/club/actualites') }}" class="btn btn-green">Voir tous les bons actualies</a></div>
       <!-- END-->
     </div>
   </div>
@@ -205,7 +191,7 @@
   </div>
   <!-- END: DESC-->
   <div class="club-contact pad-60">
-    <div class="container"><i style="background-image: url({{$actual_link}}/front/uploads/icons/ico-phone-w.png)" class="ico"></i>
+    <div class="container"><i style="background-image: url( {{ asset('/front/uploads/icons/ico-phone-w.png') }} )" class="ico"></i>
       <h2 class="ttl">Besoin de nous contacter pour un renseignement ?</h2><a href="#" class="btn btn-white">Contactez-nous</a>
     </div>
   </div>

@@ -9,22 +9,12 @@
     </div>
     <div class="product-seo pad-80">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6">
-            <span>
-              <h4>{{ $plan->meta_title }}</h4>
-              <p>{{ $plan->meta_description }}</p>
-            </span>
-          </div>
-          <div class="col-sm-6">
-            <figure class="prod-img"><img src="{{ asset($plan->media('visual', $type=3, $width=338)) }}" width="338" class="img-responsive"></figure>
-          </div>
-        </div>
+          @widget('BlockSeo')
       </div>
     </div>
   </div>
   <!-- END: PRODUCT LIST-->
-  @include('front.includes.home-logo')
+  @widget('BlockLogo')
   <!-- END: HOME LOGO-->
   @include('front.includes.block')
   <!-- END: BLOCK-->

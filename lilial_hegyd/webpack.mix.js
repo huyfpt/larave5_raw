@@ -26,4 +26,8 @@ mix.sass('resources/assets/front/scss/style.scss', 'public/front/css/style.css')
 //mix.copy('resources/assets/front/css/style.css', 'public/front/css/style.css');
 
 mix.copy('resources/assets/app/vendor/bower', 'public/app/vendor/bower', false);
+mix.copy('resources/assets/app/css', 'public/app/css', false);
+mix.copy('resources/assets/app/js', 'public/app/js', false);
+
+mix.copy('resources/assets/vendor/hegyd/news/js/news', 'public/vendor/hegyd/news/js/news', false);
 

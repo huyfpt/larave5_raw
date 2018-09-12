@@ -6,6 +6,7 @@ return [
         'management' => 'Produits',
         'edit'       => 'Edition de :name',
         'new'        => 'Création d\'un produit',
+        'import'     => 'Importer Produit'
     ],
     'buttons'       => [
         'add'              => 'Créer un nouveau produit',
@@ -15,6 +16,7 @@ return [
         'hide_description' => 'Masquer la description',
         'see_front_page'   => 'Voir la fiche produit',
         'back_index'       => 'Retour à la liste',
+        'cancel'           => 'Annuler',
     ],
     'fields'        => [
         'active'           => 'Statut',

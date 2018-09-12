@@ -1,0 +1,25 @@
+#form-upload {
+    padding: 10px;
+    background: #A5CCFF;
+    border-radius: 5px;
+}
+
+#progress {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+}
+
+#bar {
+    background: #F39A3A;
+    height: 20px;
+    width: 0px;
+}
+
+#percent {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    color: #fff;
+}

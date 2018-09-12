@@ -9,7 +9,7 @@
                 <div class="prod-cat">{{ $item->category->name }}</div>
                 <div class="prod-author">{{ $item->brand->name }}</div>
                 <h3 class="prod-ttl">{{ $item->name }}</h3>
-                <div class="txt">{{ str_limit($item->description, $limit = 75, $end = '...') }}</div>
+                <div class="txt">{{ str_limit(strip_tags($item->description), $limit = 75, $end = '...') }}</div>
                 <div class="blk-arr"><span>voir le produit</span><i class="fa fa-long-arrow-right"></i></div>
               </div>
             </a>

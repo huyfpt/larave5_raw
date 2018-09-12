@@ -9,6 +9,7 @@
  * 6. Plugin Checkbox
  * 7. Product Gallery
  * 8. Show Search Header
+ * 9. Menu Club Lilial
  */
 /* ----------------------------------------------- */
 /* ------------- FrontEnd Functions -------------- */
@@ -129,6 +130,54 @@ function menuMobile() {
         $('.hd_menu .ico').addClass('ico-bars');
     });
 }
+// 5.1
+function appendHtmlMenuMB() {
+    if(!$('.col-menu').length) { return; }
+
+    $('.col-menu .menu li').each(function(e) {
+        if($(this).hasClass('has-child')) {
+            $(this).append('<span class="shw_menu"><i class="fa fa-plus"></i><span>')
+        }
+    });
+
+    // 5.3 show sub-menu
+    showSubMenuMB();
+}
+// 5.3 show sub-menu
+function showSubMenuMB() {
+    if(!$('.shw_menu').length) { return; }
+
+    $('.shw_menu').on('click', function(e) {
+        e.preventDefault();
+
+        var $a_click  =     $(this),
+            $sub_menu =     $a_click.siblings('.sub-menu'),
+            $li       =     $a_click.closest('.has-child').siblings('.has-child'),
+            $icon     =     $a_click.find('.fa');
+
+        if($a_click.hasClass('act')) {
+            $a_click.removeClass('act');
+            $sub_menu.hide();
+
+            // change icon
+            $icon.addClass('fa-plus');
+            $icon.removeClass('fa-minus');
+        } else {
+            $a_click.addClass('act');
+            $sub_menu.show();
+
+            // close menu siblings
+            $li.find('.shw_menu').removeClass('act');
+            $li.find('.sub-menu').hide();
+            $li.find('.fa').addClass('fa-plus');
+            $li.find('.fa').removeClass('fa-minus');;
+
+            // change icon
+            $icon.removeClass('fa-plus');
+            $icon.addClass('fa-minus');
+        }
+    });
+}
 /**
  * 6. Plugin Checkbox
  */
@@ -202,6 +251,46 @@ function showSearchHeader() {
         $('.search-wrap').removeClass('shw');
     });
 }
+/**
+ * 9. Menu Club Lilial
+ */
+function menuClub() {
+    if(!$('.hd-club-wrap').length) { return; }
+
+    if ($(window).width() > 992) {
+        $('.hd-club-wrap').hoverIntent({
+            interval: 200,
+            timeout: 200,
+            over: function() {
+                $(this).find('.sub-menu').addClass('shw');
+            },
+            out: function() {
+                $(this).find('.sub-menu').removeClass('shw');
+            }
+        });
+    } else {
+        $('.hd_club').on('click', function(e) {
+            e.preventDefault();
+
+            var $a_club = $(this),
+                $menu   = $a_club.siblings('.sub-menu');      
+                
+            if($a_club.hasClass('act')) {
+                $a_club.removeClass('act')
+                $menu.removeClass('shw');
+            } else {
+                $a_club.addClass('act')
+                $menu.addClass('shw');
+            }
+        });
+
+        // click out
+        $(".hd-club-wrap").bind( "clickoutside", function(event){
+            $('.hd_club').removeClass('act')
+            $('.sub-menu').removeClass('shw');
+        });
+    }
+}
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -224,6 +313,9 @@ $(document).ready(function($){
     // 5. 
     menuMobile();
 
+    // 5.1
+    appendHtmlMenuMB();
+
     // 6. 
     pluginCheckbox('.ipt-checkbox');
 
@@ -236,6 +328,9 @@ $(document).ready(function($){
     // 8.
     showSearchHeader();
 
+    // 9. 
+    menuClub();
+
     // stop video when close modal
     $('#myVideo').on('hidden.bs.modal', function () {
         $('.youtube_player_iframe').each(function(){
@@ -243,47 +338,6 @@ $(document).ready(function($){
             $(this).attr("src",el_src);
         });
     })
-
-    $('#search_top #keyword_top').autocomplete({
-        minChars: 2,
-        lookup: function (query, done) {
-
-            var result = null;
-            $.ajax({
-                url: '/produits/suggest?q=' + query,
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    result = data;
-                    done(result);
-                },
-            });
-        },
-
-        onSelect: function (suggestion) {
-            $('#search_top').submit();
-        }
-    });
-    
-    //set cookie accept
-    $('#cookie-accept').click(function () {
-          days = 182;
-          myDate = new Date();
-          myDate.setTime(myDate.getTime() + days * 24 * 60 * 60 * 1000);
-          document.cookie = "comply_cookie = comply_yes; expires = " + myDate.toGMTString();
-          $("#cookies").slideUp("slow");
-    });
-
-    // set cookie decline
-    $('#cookie-decline').click(function () {
-          days = 182;
-          myDate = new Date();
-          myDate.setTime(myDate.getTime() + days * 24 * 60 * 60 * 1000);
-          document.cookie = "comply_cookie = comply_no; expires = " + myDate.toGMTString();
-          $("#cookies").slideUp("slow");
-    });
-
-
 });
 /* OnLoad Window */
 var init = function () {

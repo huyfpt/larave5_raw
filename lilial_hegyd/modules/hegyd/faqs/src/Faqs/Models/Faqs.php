@@ -24,7 +24,8 @@ class Faqs extends AbstractModel
         'start_at',
         'end_at',
         'category_id',
-        'author_id'
+        'author_id',
+        'meta_robots'
     ];
 
     protected $casts = [
@@ -32,6 +33,11 @@ class Faqs extends AbstractModel
         'start_at' => 'datetime:Y-m-d',
         'end_at' => 'datetime:Y-m-d',
     ];
+
+    const INDEX_FOLLOW = 'INDEX, FOLLOW';
+    const NOINDEX_FOLLOW = 'NOINDEX, FOLLOW';
+    const INDEX_NOFOLLOW = 'INDEX, NOFOLLOW';
+    const NOINDEX_NOFOLLOW = 'NOINDEX, NOFOLLOW';
 
     /**
      * Validation rules

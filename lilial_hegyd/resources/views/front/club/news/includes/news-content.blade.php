@@ -6,7 +6,7 @@
         @if(!empty($news))
           @foreach($news as $item)
             <div class="prod-item col-md-4 col-sm-6">
-              <a href="{{ url('/club/news/'.$item->slug) }}" class="prod-inner">
+              <a href="{{ url('/club/actualites/'.$item->slug) }}" class="prod-inner">
                 <figure class="prod-img"><img src="{{ asset($item->media('visual', $type=4, $width=313)) }}" alt=""></figure>
                 <div class="prod-info">
                   <div class="prod-cat">{{ $item->category->name }}</div>

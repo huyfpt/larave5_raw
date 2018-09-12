@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Common\User;
 use App\Models\Common\Client;
+use App\Models\Common\City;
 
 
 class UsersController extends AbstractAdminController
@@ -394,6 +395,45 @@ class UsersController extends AbstractAdminController
     protected function populateRoles()
     {
         return app(RoleService::class)->getSelectList();
+    }
+
+    protected function viewVars()
+    {
+        $vars = parent::viewVars();
+
+        $vars['cities'] = $this->getCities();
+
+        return $vars;
+    }
+
+    public function getCities()
+    {
+        $cities = City::select('name')->distinct('name')->limit(20)->pluck('name');
+
+        return $cities;
+    }
+
+    public function ajaxCities(Request $request)
+    {
+        $keyword = $request->get('q');
+
+        $query = City::select('name')->distinct('name');
+        if (!empty($keyword)) {
+            $cities = $query->where('name', 'LIKE', '%'.$keyword.'%')->limit(20)->pluck('name');
+        }
+        else
+        {
+            $cities = $this->getCities();
+        }
+
+        if(!empty($cities))
+        {
+            $cities = $cities->map(function ($item) {
+                return ['id' => $item, 'text' => $item];
+            });
+        }
+
+        return $cities;
     }
 
 }

@@ -136,7 +136,7 @@
     <div class="row">
         <div class="white-box">
             <h3 class="box-title">@lang('users.subtitle.address')</h3>
-            @include('app.includes.form.addressable', ['field_div_class' => 'col-md-9'])
+            @include('app.contents.admin.users.includes.form.addressable', ['field_div_class' => 'col-md-9'])
         </div>
     </div>
 

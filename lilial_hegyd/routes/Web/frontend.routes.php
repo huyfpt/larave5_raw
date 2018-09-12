@@ -2,9 +2,9 @@
 
 Route::group([
     'namespace'  => 'Frontend',
-    'prefix'     => 'frontend',
-    'as'         => '/',
+    'prefix'     => '/',
+    'as'         => 'frontend.',
 ], function ()
 {
-    RoutesTools::includeRoutes('Web/Front', true);
+    RoutesTools::includeRoutes('Web/Frontend', true);
 });

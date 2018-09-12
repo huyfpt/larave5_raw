@@ -8,6 +8,19 @@
             {!! Form::errorMsg('active', $errors) !!}
         </div>
     </div>
+    <div class="form-group {!! Form::hasError('visibility', $errors) !!}">
+        <div class="col-md-2">
+            <label class="control-label">@lang('hegyd-news::news.field.visibility')</label>
+        </div>
+        <div class="col-md-10">
+            @php
+                $value = !empty($model->visibility) ? $model->visibility : null;
+                $checked = ($value == 0) ? 'checked' : '';
+            @endphp
+            {!! Form::checkbox('visibility', $value, $checked, ['class' => 'switcheryable']) !!}
+            {!! Form::errorMsg('visibility', $errors) !!}
+        </div>
+    </div>
     <!-- <div class="form-group {!! Form::hasError('display_on_slider', $errors) !!}">
         <div class="col-md-2">
             <label class="control-label">@lang('hegyd-news::news.field.display_on_slider')</label>

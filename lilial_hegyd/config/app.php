@@ -204,6 +204,7 @@ $app = [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         Arrilot\Widgets\ServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
@@ -278,6 +279,8 @@ $app = [
         'Sitemap'     => Roumen\Sitemap\SitemapServiceProvider::class,
         'Widget'       => Arrilot\Widgets\Facade::class,
         'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+
     ],
 ];
 

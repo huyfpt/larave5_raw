@@ -35,6 +35,7 @@ return [
     'export_excel' => 'Export Excel',
     'import_excel' => 'Import Excel',
     'export_csv'   => 'Export CSV',
+    'import_zip' => 'Import Zip',
 
     'bulk_actions' => 'Actions groupées',
 

@@ -1,5 +1,5 @@
 @extends(config('hegyd-faqs.main_layout.backend'))
-
+@inject('faqsService', 'Hegyd\Faqs\Services\FaqsService')
 @section('title')
     {!! $title !!}
 @endsection
@@ -145,6 +145,15 @@
                             <div class="col-md-10">
                                 {!! Form::text('meta_keyword', null, ['class' => 'form-control']) !!}
                                 {!! Form::errorMsg('meta_keyword', $errors) !!}
+                            </div>
+                        </div>
+                        <div class="form-group {!! Form::hasError('meta_robots', $errors) !!}">
+                            <div class="col-md-2">
+                                <label class="control-label">@lang('hegyd-faqs::faqs.field.meta_robots')</label>
+                            </div>
+                            <div class="col-md-10">
+                                {!! Form::select('meta_robots', $faqsService->metaRobots(), $model->meta_robots, ['class' => 'form-control']) !!}
+                                {!! Form::errorMsg('meta_robots', $errors) !!}
                             </div>
                         </div>
                     </div>

@@ -158,8 +158,9 @@ class ProductsController extends AbstractFrontendController
         $breadcrumb = $this->breadcrumbs;
 
         $h1 = trans('products.title.index_h1');
+        $keyword = '';
 
-        return view('front.product.index', compact('data', 'breadcrumb', 'childCategory', 'h1'));
+        return view('front.product.index', compact('data', 'breadcrumb', 'childCategory', 'h1', 'keyword'));
     }
 
     public function search()
@@ -201,6 +202,7 @@ class ProductsController extends AbstractFrontendController
 
         $breadcrumb = $this->breadcrumbs;
         $h1 = $category->name;
+        $keyword = '';
 
         return view('front.product.category', compact('data', 'category', 'breadcrumb', 'childCategory', 'keyword', 'h1'));
     }

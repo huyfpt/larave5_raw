@@ -33,6 +33,10 @@
 {!! Html::script('/app/js/leave.js') !!}
 {!! Html::script('/app/js/menu-left.js') !!}
 
+<!-- Resize image upload summernote editor -->
+<!-- {!! Html::script('/app/js/summernote/exif.js') !!} -->
+<!-- {!! Html::script('/app/js/summernote/summernote-ext-elfinder.js') !!} -->
+
 
 
 

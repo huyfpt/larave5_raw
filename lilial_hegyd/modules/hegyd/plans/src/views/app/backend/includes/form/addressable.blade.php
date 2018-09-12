@@ -19,14 +19,14 @@
         <label class="{{$label_class}} control-label">@lang($prefix . '.fields.zip')
             <i class="required-field">*</i>
         </label>
-        @php
-            $post_code[$zip] = $zip;
-        @endphp
         <div class="{{ $field_div_class }}">
             <select class="form-control" id="plan_zip" name="address[zip]" required="">
                 @if(!empty($post_code))
-                    @foreach($post_code as $item)
-                        <option @if($item == $zip) selected @endif value="{{$item}}">{{$item}}</option>
+                    @if(!empty($zip))
+                        <option selected="" value="{{ $zip }}">{{ $zip }}</option>
+                    @endif
+                    @foreach($post_code as $key => $item)
+                        <option value="{{$item}}">{{$item}}</option>
                     @endforeach
                 @endif
             </select>

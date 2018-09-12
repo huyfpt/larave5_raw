@@ -170,11 +170,15 @@ class PlansController extends AbstractBackendController
             $datas['avantage'] = false;
         }
 
-        if ( ! isset($datas['visibility']))
+        if ( ! isset($datas['visibility']) || $datas['visibility'] == 0)
         {
-            $datas['visibility'] = false;
+            $datas['visibility'] = 1;
         }
-        
+        else
+        {
+            $datas['visibility'] = 0;
+        }
+        // dd($datas);
         return $datas;
 
     }

@@ -22,7 +22,11 @@
             <label class="control-label">@lang('hegyd-plans::plans.field.visibility')</label>
         </div>
         <div class="col-md-10">
-            {!! Form::checkbox('visibility', 1, null, ['class' => 'switcheryable']) !!}
+            @php
+                $value = !empty($model->visibility) ? $model->visibility : null;
+                $checked = ($value == 0) ? 'checked' : '';
+            @endphp
+            {!! Form::checkbox('visibility', $value, $checked, ['class' => 'switcheryable']) !!}
             {!! Form::errorMsg('visibility', $errors) !!}
         </div>
     </div>

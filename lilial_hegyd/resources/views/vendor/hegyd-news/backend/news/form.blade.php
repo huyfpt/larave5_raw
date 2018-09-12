@@ -79,4 +79,6 @@
     {!! Html::script('/vendor/hegyd/news/js/news/form.js') !!}
     {!! Html::script('/vendor/hegyd/news/js/news/changetoslug.js') !!}
     {!! Html::script('/vendor/hegyd/news/js/news/validate.js') !!}
+
+    {!! Html::script('/app/js/summernote/summernote-ajax-upload-image.js') !!}
 @endpush

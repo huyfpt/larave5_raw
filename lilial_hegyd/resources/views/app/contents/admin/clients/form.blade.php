@@ -54,8 +54,15 @@
 
 @endsection
 
+@push('stylesheets')
+    {!! Html::style('/vendor/bower/select2/dist/css/select2.min.css') !!}
+@endpush
+
 @push('scripts')
     {!! Html::script('/vendor/bower/jquery-validation/dist/jquery.validate.js') !!}
 
-    {!! Html::script('/app/js/users/form.js') !!}
+    {!! Html::script('/vendor/bower/select2/dist/js/select2.full.min.js') !!}
+    
+    {!! Html::script('/app/js/clients/form.js') !!}
+
 @endpush

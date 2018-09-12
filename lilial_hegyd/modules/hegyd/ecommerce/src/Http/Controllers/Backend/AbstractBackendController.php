@@ -67,6 +67,12 @@ abstract class AbstractBackendController extends AbstractController
                     'text'  => trans('app.export_excel'),
                     'ajax'  => false,
                 ],
+                'import-zip'    => [
+                    'route' => 'import.zip',
+                    'icon'  => 'fa fa-upload',
+                    'text'  => trans('app.import_zip'),
+                    'ajax'  => false,
+                ],
                 'active'   => [
                     'route' => 'bulk.active',
                     'icon'  => 'fa fa-check',

@@ -164,3 +164,78 @@
     }
   }
 }
+
+
+.home-news {
+  .lil-fanpage {
+    background: #fff;
+    border-radius: 6px;
+  }
+}
+
+.help-block {
+    ul {
+        li {
+            color: #a94442;
+        }
+    }
+}
+
+.profile_zip {
+  .select2-container {
+    .select2-selection--single {
+        height: 47px;
+    }
+  }
+  .select2-container--default {
+    .select2-selection--single {
+      .select2-selection__rendered {
+        line-height: 47px;
+      }
+      .select2-selection__arrow {
+        top: 10px;
+      }
+    }
+  }
+}
+
+a.btn-upload.generate_password span:hover {
+    color: blue;
+}
+.newsletter-content {
+  padding-top: 200px;
+  color: black;
+}
+#default_newsletter {
+  margin-left: 0px;
+}
+.hide {
+  display: none;
+}
+.help-block {
+  color: #a94442;
+}
+
+#error_msg {
+  color: #ad2f2f;
+}
+
+
+.has-error {
+  color: #a94442;
+  .ipt {
+
+    &.ipt-normal {
+      border-color: #a94442;
+
+    }
+    &.txtarea {
+      border-color: #a94442;      
+    }
+  }
+
+  .lb-form {
+    color: #a94442;
+  }
+
+}

@@ -25,7 +25,7 @@ return [
         'loginAs'                   => 'Se connecter en tant que',
     ],
     'fields'   => [
-        'active'             => 'Actif',
+        'active'             => 'Statut',
         'agencies'           => 'Ses agences',
         'ambassador'         => 'Ambassadeur',
         'avatar'             => 'Avatar',

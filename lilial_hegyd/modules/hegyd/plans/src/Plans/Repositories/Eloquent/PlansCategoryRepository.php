@@ -33,6 +33,8 @@ class PlansCategoryRepository extends Repository implements PlansCategoryReposit
     {
         if ($model->plans->count())
             return false;
+        if($model->parent_id != 0)
+            return false;
 
         return true;
     }

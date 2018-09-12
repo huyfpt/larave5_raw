@@ -1,14 +1,14 @@
 <div class="blk-main-content">
   <div class="blk-slider blk-page-banner"><img src="{{ asset('front/uploads/Visuel_video@2x.jpg') }}" alt="">
     <!-- IMG FOR PC-->
-    <div style="background-image: url({{$actual_link}}/front/uploads/Visuel_video@2x.jpg)" class="banner-thumb"></div>
+    <div style="background-image: url({{ asset('/front/uploads/Visuel_video@2x.jpg') }} )" class="banner-thumb"></div>
     <!-- IMG FOR MOBILE-->
     <div class="page-banner-info">
-      <h1 class="ttl">Qui sommes-nous ?</h1><i style="background-image: url({{$actual_link}}/front/uploads/icons/ico-play.png)" class="ico"></i>
+      <h1 class="ttl">Qui sommes-nous ?</h1><i style="background-image: url( {{ asset('/front/uploads/icons/ico-play.png') }} )" class="ico"></i>
     </div>
   </div>
   <!-- END: BANNER-->
-  <div class="home-about blk-page-desc">
+  <div class="home-about blk-page-desc pad-80">
     <div class="container">
       <h2 class="blk-title">Présentation</h2>
       <div class="about-txt text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare vitae nunc non iaculis. Nam dictum vitae magna at imperdiet. Cras tincidunt purus in nunc laoreet auctor. Curabitur ac commodo sem, quis tempus sem. Integer ligula dolor, luctus et bibendum eu, iaculis eu dolor. Aliquam auctor purus ipsum, quis consectetur est tincidunt at. Proin dignissim commodo arcu vitae consectetur.</div>
@@ -29,8 +29,8 @@
           <!-- END : LEFT-->
           <div class="col-md-6 col-sm-12 info-right">
             <div class="info"> 
-              <h2 class="blk-title">@lang('about.'. $about[0]->title)</h2>
-              <div class="txt">{!!$about[0]->content!!}</div>
+              <h2 class="blk-title">@lang('about.'. $about['history']->title)</h2>
+              <div class="txt">{!!$about['history']->content!!}</div>
             </div>
           </div>
           <!-- END : RIGHT-->
@@ -45,21 +45,21 @@
         <div class="col-md-4 col-sm-6 rating-itm">
           <div class="inner">
             <h3 class="ttl sml">Nombre de produits</h3>
-            <h2 class="ttl num">{{$product}}</h2>
+            <h2 class="ttl num">{{ $counter['product'] }}</h2>
           </div>
         </div>
         <!-- END : ITEM-->
         <div class="col-md-4 col-sm-6 rating-itm">
           <div class="inner">
             <h3 class="ttl sml">Nombre de clients</h3>
-            <h2 class="ttl num">{{$client}}</h2>
+            <h2 class="ttl num">{{ $counter['client'] }}</h2>
           </div>
         </div>
         <!-- END : ITEM-->
         <div class="col-md-4 col-sm-6 offset-md-0 offset-sm-3 rating-itm">
           <div class="inner">
             <h3 class="ttl sml">Nombre d'abonnés</h3>
-            <h2 class="ttl num">{{$userSup}}</h2>
+            <h2 class="ttl num">{{ $counter['userSup'] }}</h2>
           </div>
         </div>
         <!-- END : ITEM-->
@@ -80,8 +80,8 @@
             <!-- END : IMG FOR MOBILE-->
             <div class="col-md-6 col-sm-12 info-left">
               <div class="info"> 
-                <h2 class="blk-title">@lang('about.'. $about[1]->title)</h2>
-              <div class="txt">{!!$about[1]->content!!}</div>
+                <h2 class="blk-title">@lang('about.'. $about['our-team']->title)</h2>
+              <div class="txt">{!!$about['our-team']->content!!}</div>
               </div>
             </div>
             <!-- END : LEFT-->
@@ -106,8 +106,8 @@
             <!-- END : LEFT-->
             <div class="col-md-6 col-sm-12 info-right">
               <div class="info"> 
-                <h2 class="blk-title">@lang('about.'. $about[2]->title)</h2>
-              <div class="txt">{!!$about[2]->content!!}</div>
+                <h2 class="blk-title">@lang('about.'. $about['lilial-is-committed']->title)</h2>
+              <div class="txt">{!!$about['lilial-is-committed']->content!!}</div>
               </div>
             </div>
             <!-- END : RIGHT-->
@@ -128,8 +128,8 @@
             <!-- END : IMG FOR MOBILE-->
             <div class="col-md-6 col-sm-12 info-left">
               <div class="info"> 
-                <h2 class="blk-title">@lang('about.'. $about[3]->title)</h2>
-              <div class="txt">{!!$about[3]->content!!}</div>
+                <h2 class="blk-title">@lang('about.'. $about['coloplast']->title)</h2>
+              <div class="txt">{!!$about['coloplast']->content!!}</div>
             </div>
             <!-- END : LEFT-->
             <div class="col-md-6 col-sm-12 info-right">&nbsp;</div>

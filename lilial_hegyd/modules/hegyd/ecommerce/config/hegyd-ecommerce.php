@@ -162,6 +162,7 @@ return [
                 'product-related' => 'admin.products.product-related',
                 'brand-logo'      => 'admin.products.brand-logo',
                 'excel'           => 'admin.products.export.excel',
+                'import-zip'    => 'admin.products.import.zip',
             ],
             'category'     => [
                 'index'             => 'admin.categories.index',

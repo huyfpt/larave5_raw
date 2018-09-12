@@ -182,7 +182,7 @@ trait Formable
             $datas = $this->beforeCreate($datas);
             $datas = $this->beforeSave($datas);
             $model = $this->storeNew($datas);
-            $this->notifyCreated($this->trans('label.new_created'));
+            $this->notifyCreated($this->trans('labels.new_created'));
 
             return $this->customRedirect($datas, $model, $this->prefix('route'));
         }
@@ -203,7 +203,7 @@ trait Formable
         $this->model = $this->getRepository()->find($id);
         if ($this->model == null)
         {
-            $this->notifyError($this->trans('label.not_found'));
+            $this->notifyError($this->trans('labels.not_found'));
 
             return redirect()->route($this->routeAlias('index'));
         }
@@ -239,7 +239,7 @@ trait Formable
         $this->model = $this->getRepository()->find($id);
         if ($this->model == null)
         {
-            $this->notifyError($this->trans('label.not_found'));
+            $this->notifyError($this->trans('labels.not_found'));
 
             return redirect()->route($this->routeAlias('index'));
         }
@@ -256,7 +256,7 @@ trait Formable
             $datas = $this->beforeUpdate($this->model, $datas);
             $datas = $this->beforeSave($datas, $this->model);
             $this->model = $this->updateExisting($datas, $id);
-            $this->notifyUpdated($this->trans('label.updated'));
+            $this->notifyUpdated($this->trans('labels.updated'));
 
             return $this->customRedirect($datas, $this->model, $this->prefix('route'));
         }
@@ -270,7 +270,7 @@ trait Formable
      */
     protected function redirectError($redirectUrl, $validator)
     {
-        $this->notifyError($this->trans('label.cannot_save'));
+        $this->notifyError($this->trans('labels.cannot_save'));
 
         $redirection = redirect($redirectUrl)->withErrors($validator);
         $excepts = $this->exeptInputs();

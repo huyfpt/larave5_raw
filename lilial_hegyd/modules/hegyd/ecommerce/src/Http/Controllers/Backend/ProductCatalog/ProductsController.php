@@ -15,6 +15,7 @@ use Hegyd\Uploads\Models\Upload;
 use Hegyd\Uploads\Repositories\Contracts\UploadRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Services\ImportService;
 
 class ProductsController extends AbstractBackendController
 {
@@ -22,6 +23,7 @@ class ProductsController extends AbstractBackendController
     protected $uploadRepository;
     protected $bulkActions = [
         'excel',
+        'import-zip',
         // 'active',
         // 'unactive'
     ];
@@ -339,6 +341,28 @@ class ProductsController extends AbstractBackendController
         }
 
         return [];
+
+    }
+
+    public function importZip(Request $request, ImportService $import)
+    {
+        if($request->hasFile('zip_file'))
+        {
+            set_time_limit(0);
+            ini_set('max_execution_time', 0);
+
+            $filename = $request->file('zip_file')->getRealPath();
+
+            $result = $import->import($filename, false);
+
+            return $result;
+        }
+        else {
+            return [
+                'message' => __('file_not_exist'),
+                'alert-type' => 'error',
+            ];
+        }
 
     }
 

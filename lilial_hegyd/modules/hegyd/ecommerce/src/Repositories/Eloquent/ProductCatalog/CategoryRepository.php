@@ -254,4 +254,20 @@ class CategoryRepository extends Repository implements CategoryRepositoryInterfa
         return $return;
     }
 
+    public function findRootCatgory()
+    {
+        return Category::where('active', true)
+                            ->where('parent_id', 0)
+                            ->pluck('id');
+    }
+
+    public function findSubCategory($parent_id, $limit = 5)
+    {
+        return Category::where('active', true)
+                            ->where('parent_id', $parent_id)
+                            ->limit($limit)
+                            ->get(['name', 'slug'])
+                            ->toArray();
+    }
+
 }

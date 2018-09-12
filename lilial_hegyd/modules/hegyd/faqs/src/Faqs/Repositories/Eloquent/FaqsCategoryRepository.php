@@ -54,4 +54,14 @@ class FaqsCategoryRepository extends Repository implements FaqsCategoryRepositor
                 ->limit($limit)
                 ->get();
     }
+
+    public function homeCategory($limit = 3)
+    {
+        $class = $this->model();
+
+        return $class::where('status', true)
+                       ->where('parent_id', 0)
+                       ->limit($limit)
+                       ->get();
+    }
 }

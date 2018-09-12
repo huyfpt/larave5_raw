@@ -85,12 +85,12 @@ class FaqsController extends AbstractFrontendController
         $category_url = $category ? $category->url() : '';
 
         $breadcrumb = $this->breadcrumbs->addCrumb(trans('app.index'), '/');
-        // $this->breadcrumbs->addCrumb(
-        //     trans('hegyd-faqs::faqs.title.index'),
-        //     route(config('hegyd-faqs.routes.frontend.faqs_category.index'))
-        // );
+        $this->breadcrumbs->addCrumb(
+            trans('hegyd-faqs::faqs.title.index'),
+            route(config('hegyd-faqs.routes.frontend.faqs.index'))
+        );
         $breadcrumb->addCrumb(
-            trans('hegyd-faqs::faqs.title.show', ['name' => $category_title]),
+            trans('hegyd-faqs::faqs.title.show', ['title' => $category_title]),
             $category_url
         );
         $breadcrumb->addCrumb($faqs->label);

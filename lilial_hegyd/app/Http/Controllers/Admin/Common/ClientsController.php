@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Models\Common\User;
 use App\Models\Common\Client;
 use Illuminate\Support\Facades\DB;
+use App\Models\Common\City;
 
 class ClientsController extends AbstractAdminController
 {
@@ -77,10 +78,10 @@ class ClientsController extends AbstractAdminController
                 'users.civility',
                 'users.username',
                 'users.email',
-                'users.password',
+                // 'users.password',
                 'users.phone',
                 'users.mobile',
-                'users.creator_id',
+                // 'users.creator_id',
                 'users.newsletter',
                 'roles.display_name as role_name',
                 'clients.type',
@@ -152,16 +153,16 @@ class ClientsController extends AbstractAdminController
                     'CIVILITÉ',
                     'NOM D\'UTILISATEUR',
                     'EMAIL',
-                    'MOT DE PASSE',
+                    // 'MOT DE PASSE',
                     'TÉLÉPHONE',
                     'MOBILE',
-                    'CRÉATEUR',
+                    // 'CRÉATEUR',
                     'NEWSLETTER',
                     'RÔLE',
                     'TYPE',
                     'CLUB',
                     'AMBASSADEUR',
-                    'ACTIF',
+                    'STATUT',
                     'CRÉÉ À',
                 ],
                 'joinFields'    => [
@@ -307,6 +308,45 @@ class ClientsController extends AbstractAdminController
         Client::deleteUser($id);
 
         return $this->executeDelete($id);
+    }
+
+    protected function viewVars()
+    {
+        $vars = parent::viewVars();
+
+        $vars['post_code'] = $this->getPostCode();
+
+        return $vars;
+    }
+
+    public function getPostCode()
+    {
+        $post_code = City::select('zip')->distinct('zip')->limit(20)->pluck('zip');
+
+        return $post_code;
+    }
+
+    public function ajaxPostCode(Request $request)
+    {
+        $keyword = $request->get('q');
+
+        $query = City::select('zip')->distinct('zip');
+        if (!empty($keyword)) {
+            $post_code = $query->where('zip', 'LIKE', '%'.$keyword.'%')->limit(20)->pluck('zip');
+        }
+        else
+        {
+            $post_code = $this->getPostCode();
+        }
+
+        if(!empty($post_code))
+        {
+            $post_code = $post_code->map(function ($item) {
+                return ['id' => $item, 'text' => $item];
+            });
+        }
+
+        return $post_code;
     }
     
 }

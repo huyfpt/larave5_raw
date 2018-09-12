@@ -23,6 +23,7 @@ class News extends AbstractModel
 
     protected $fillable = [
         'active',
+        'visibility',
         'name',
         'content',
         'display_on_slider',

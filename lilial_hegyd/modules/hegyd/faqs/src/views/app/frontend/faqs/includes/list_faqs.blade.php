@@ -2,13 +2,16 @@
   <div class="row">
     @if(count($faqs))
     @foreach($faqs as $faq)
-      
       <div class="prod-item col-md-4 col-sm-6"> <!-- <a href="#" class="prod-inner"> -->
         <figure class="prod-img"><a href="{{ url('/faqs/'.$faq->slug) }}" class="prod-inner"><img src="{{ $faq->media() }}" alt=""></a></figure>
         <div class="prod-info">
           <div class="row">
             <div class="col-md-8 col-sm-6">{{ $faq->category->label }}</div>
-            <div class="col-md-4  col-sm-4">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $faq->start_at)->format('d/m/Y') }}</div>
+            <div class="col-md-4  col-sm-4">
+              @if (!empty($faq->start_at))
+              {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $faq->start_at)->format('d/m/Y') }}
+              @endif
+            </div>
           </div>
           {{-- <div class="prod-author">BBraun</div> --}}
           <h3 class="prod-ttl">{{ $faq->title }}</h3>

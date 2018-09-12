@@ -6,12 +6,29 @@ use App\Facades\AppTools;
 use App\Models\Content\Setting;
 use App\Models\Content\SettingCategory;
 use Illuminate\Support\Collection;
+use App\Repositories\Contracts\Content\SettingRepositoryInterface;
 
 class SettingService
 {
 
+    protected $repository;
+
+    public function __construct(SettingRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function getSettingByKey($key)
     {
+        $allSettings = $this->repository->getAllSetting();
+
+        if (isset($allSettings[$key])) {
+            return $allSettings[$key];
+        }
+        else {
+            return false;
+        }
+
         $current_company = AppTools::currentCompany();
         if ($current_company)
         {

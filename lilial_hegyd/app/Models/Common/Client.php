@@ -64,6 +64,7 @@ class Client extends AbstractModel implements
         $required_if_not_exists = $this->exists ? '' : '|required';
 
         $rules = [
+            'username'  => "required|unique:users,username$except_id$required_if_not_exists",
             'email'     => "required|email|unique:users,email$except_id$required_if_not_exists",
             'password'  => 'min:8|confirmed'.$required_if_not_exists,
             'mobile'    => [

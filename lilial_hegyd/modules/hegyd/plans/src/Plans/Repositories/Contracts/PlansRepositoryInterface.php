@@ -33,5 +33,5 @@ interface PlansRepositoryInterface
      * get recent plans for home page
      * @return mixed
      */
-    public function getRecentPlans();
+    public function getRecentPlans($limit = 3);
 }

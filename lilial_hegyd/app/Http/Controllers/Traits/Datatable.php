@@ -413,7 +413,7 @@ trait Datatable
     protected function checkDeleteNews(AbstractNewsModel $model)
     {
         $errors = [];
-        if ( ! $this->getRepository()->checkDelete($model, $errors))
+        if ( ! $this->getRepository()->checkDelete($model, $errors) || $model->parent_id != 0)
         {
             if ( ! empty($errors))
             {
@@ -423,7 +423,7 @@ trait Datatable
                 }
             }
 
-            return $this->failureJsonResponse(Response::HTTP_INTERNAL_SERVER_ERROR, ['main_message' => $this->trans('label.cannot_delete'), 'messages' => $errors]);
+            return $this->failureJsonResponse(Response::HTTP_INTERNAL_SERVER_ERROR, ['main_message' => $this->trans('labels.cannot_delete'), 'messages' => $errors]);
         }
 
         return null;
@@ -750,6 +750,15 @@ trait Datatable
     protected function printStatus3($field, $checked, $id)
     {
         return view('app.includes.datatable.status3')
+            ->with('config', $this->_config)
+            ->with('field', $field)
+            ->with('id', $id)
+            ->with('checked', $checked)->render();
+    }
+
+    public function printVisible($field, $checked, $id)
+    {
+        return view('app.includes.datatable.visible')
             ->with('config', $this->_config)
             ->with('field', $field)
             ->with('id', $id)
@@ -1138,7 +1147,9 @@ trait Datatable
                 }
                 if ($key == 'civility') {
                     $rows[$object->id][] = $val == 1 ? 'Monsieur' : 'Madame';
-                } else if ($key == 'active' || $key == 'ambassador' || $key == 'club_lilial' || $key == 'newsletter') {
+                } else if($key == 'ambassador' || $key == 'club_lilial') {
+                    $rows[$object->id][] = $val == 1 ? 'Yes' : 'No';
+                } else if ($key == 'active' || $key == 'newsletter') {
                     $rows[$object->id][] = $val == 1 ? 'Actif' : 'Inactif';
                 } else {
                     $rows[$object->id][] = $val;
@@ -1174,7 +1185,7 @@ trait Datatable
     {
         Excel::create('export',
             function ($excel) {
-                $excel->sheet('test',
+                $excel->sheet('Sheet 1',
                     function ($sheet) {
                         $sheet->loadView('app.contents.admin.export.excel',
                             [
@@ -1262,19 +1273,31 @@ trait Datatable
                 }
             }
 
-            // dd($dataValueConvert);
-            $data = $this->sliceData($dataValueConvert);
-            // dd($data);
-            
-            if(!empty($data)){
+            $data = $this->beforeImport($dataValueConvert);
+
+            if($data['data'] == null && $data['status'] == 0)
+            {
+                $this->getNotificationService()->flashNotify($this->trans('labels.import_user_null'), 'danger');
+            }
+            else if($data['data'] == null && $data['status'] == 1)
+            {
+                $this->getNotificationService()->flashNotify($this->trans('labels.import_user_updated'), 'success');
+            }
+            else if($data['data'] == null && $data['status'] == 2)
+            {
+                $this->getNotificationService()->flashNotify('"'.$data['username'].'" existe déjà. S\'il vous plaît vérifier!', 'danger');
+            }
+            else if($data['data'] == null && $data['status'] == 3)
+            {
+                $this->getNotificationService()->flashNotify('"'.$data['email'].'" existe déjà. S\'il vous plaît vérifier!', 'danger');
+            }
+            else
+            {
                 // Store data to (users and clients table)
-                $this->storeDataUser($data['user']);
-                $this->storeDataClient($data['user'], $data['client']);
+                $this->storeDataUser($data['data']['user']);
+                $this->storeDataClient($data['data']['user'], $data['data']['client']);
 
                 $this->getNotificationService()->flashNotify($this->trans('labels.imported'), 'success');
-            }
-            else {
-                $this->getNotificationService()->flashNotify($this->trans('labels.import_user_null'), 'danger');
             }
 
         } else
@@ -1289,14 +1312,60 @@ trait Datatable
     {
         $user = new User;
         $users = $user::withTrashed()->get()->toArray();
-        $arrayNew = $array;
+        $arrayNew = array('data' => $array, 'condition' == false);
         foreach ($users as $key => $user) {
-            if($users[$key]['username'] == $array['username'] || $users[$key]['email'] == $array['email'])
+            if($users[$key]['deleted_at'] != null && ($users[$key]['username'] == $array['username'] || $users[$key]['email'] == $array['email']))
             {
-                $arrayNew = array($array, 'condition' => true);
+                $arrayNew = array('data' => $array, 'condition' => true, 'deleted_at' => true);
+                continue;
+            }
+            else if($users[$key]['username'] == $array['username'])
+            {
+                $arrayNew = array('data' => $array, 'condition' => true, 'username' => $array['username']);
+                break;
+            }
+            else if($users[$key]['email'] == $array['email'])
+            {
+                $arrayNew = array('data' => $array, 'condition' => true, 'email' => $array['email']);
+                break;
             }
         }
-        return $arrayNew = array($array, 'condition' => false);
+        return $arrayNew;
+    }
+
+    public function updateIfConditionData($data)
+    {
+        $dataSlice = $this->sliceData($data['data']);
+
+        $dataSlice['user']['deleted_at'] = null;
+
+        $query = User::withTrashed()
+                      ->where('username', $dataSlice['user']['username'])
+                      ->orWhere('email', $dataSlice['user']['email']);
+
+        $user = $query->update($dataSlice['user']);
+
+        $user_id = $query->first()->id;
+        $client = Client::where('user_id', $user_id)->first();
+
+        $dataSlice['client']['user_id'] = $user_id;
+
+        if($client != null){
+            Client::where('user_id', $user_id)
+                    ->update($dataSlice['client']);
+        }
+        else
+        {
+            $clients = new Client;
+
+            $clients->user_id = $user_id;
+            $clients->type = $dataSlice['client']['type'];
+            $clients->club_lilial = $dataSlice['client']['club_lilial'];
+            $clients->ambassador = $dataSlice['client']['ambassador'];
+
+            $clients->save();
+        }
+
     }
 
     public function sliceData($data)
@@ -1308,33 +1377,60 @@ trait Datatable
         $client = new Client;
         $clientArray = $client->getFillable();
         $clientData = [];
-        
+
+        foreach ($data as $key => $value) {
+            if(in_array($key, $userArray)) {
+                $userData[$key] = $value;
+            }
+            if(in_array($key, $clientArray)) {
+                $clientData[$key] = $value;
+                $clientData['user_id'] = null;
+            }
+        }
+        unset($userData['created_at']);
+
+        return array('user' => $userData, 'client' => $clientData);
+    }
+
+    public function beforeImport($data)
+    {
         foreach ($data as $keyData => $array) {
             if(empty($array['civility']) || empty($array['firstname']) || empty($array['lastname']) || empty($array['email']) || empty($array['username']))
             {
+                $resultData = ['data' => null, 'status' => 0];
                 continue;
             }
-            if($this->checkConditionData($array)['condition'] == true)
+            $result = $this->checkConditionData($array);
+            if($result['condition'] == true)
             {
-                dd(123);
-                continue;
-            }
-            if($this->checkConditionData($array)['condition'] == false)
-            {
-              dd(234);
-                foreach ($array as $key => $value) {
-                    if(in_array($key, $userArray)) {
-                        $userData[$keyData][$key] = $value;
-                    }
-                    if(in_array($key, $clientArray)) {
-                        $clientData[$keyData][$key] = $value;
-                        $clientData[$keyData]['user_id'] = null;
-                    }
+                if(isset($result['deleted_at']))
+                {
+                    $this->updateIfConditionData($result);
+                    $resultData = ['data' => null, 'status' => 1];
+                    continue;
                 }
-                unset($userData['created_at']);
+                else if(isset($result['username']))
+                {
+                    $resultData = ['data' => null, 'status' => 2, 'username' => $result['username']];
+                    break;
+                }
+                else if(isset($result['email']))
+                {
+                    $resultData = ['data' => null, 'status' => 3, 'email' => $result['email']];
+                    break;
+                }
+            }
+            else
+            {
+                $dataSlice[$keyData] = $this->sliceData($result['data']);
+                foreach ($dataSlice as $key => $array) {
+                    $userData[$key] = $array['user'];
+                    $clientData[$key] = $array['client'];
+                }
+                $resultData = ['data' => array('user' => $userData, 'client' => $clientData), 'status' => 4];
             }
         }
-        return array('user' => $userData, 'client' => $clientData);
+        return $resultData;
     }
 
     /**
@@ -1345,15 +1441,11 @@ trait Datatable
     public function getDataUserAfterStore($dataUser)
     {
         $user = new User;
-        $users_id = $user::orderBy('id', 'desc')->pluck('id')->take(count($dataUser))->toArray();
+        $users_id = $user::orderBy('id', 'desc')
+                          ->pluck('id')
+                          ->take(count($dataUser))
+                          ->toArray();
         sort($users_id);
-        // $users_id = array_chunk($users_id, 1);
-
-        // $users_id = array_map(function($user) {
-        //     return array(
-        //         'user_id' => $user['0'],
-        //     );
-        // }, $users_id);
 
         return $users_id;
     }
@@ -1394,9 +1486,9 @@ trait Datatable
      */
     public function convertValueExcelFile($key, $value)
     {
-        if($value == 'Actif')
+        if($value == 'Actif' || $value == 'Yes')
             return 1;
-        else if($value == 'Inactif')
+        else if($value == 'Inactif' || $value == 'No')
             return 0;
         else if($value == 'Madame')
             return 2;
@@ -1406,14 +1498,12 @@ trait Datatable
             return (int) $value;
         else if($value == 'Client')
             return 4;
-        else if($key == 'newsletter' || $key == 'club_lilial' || $key == 'ambassador' && $value == null)
+        else if($key == 'role_id' && $value != 'Client')
+            return 3;
+        else if($key == 'active' || $key == 'newsletter' || $key == 'club_lilial' || $key == 'ambassador' && $value == null)
             return 0;
-        else if($key == 'role_id' && $value == null)
-            return 4;
         else if($key == 'type' && $value == null)
             return 'user';
-        else if($key == 'active' && $value == null)
-            return 0;
         else
             return $value;
     }
@@ -1447,18 +1537,18 @@ trait Datatable
           case 'email':
             return $key = 'email';
             break;
-          case 'mot_de_passe':
-            return $key = 'password';
-            break;
+          // case 'mot_de_passe':
+          //   return $key = 'password';
+          //   break;
           case 'telephone':
             return $key = 'phone';
             break;
           case 'mobile':
             return $key = 'mobile';
             break;
-          case 'createur':
-            return $key = 'creator_id';
-            break;
+          // case 'createur':
+          //   return $key = 'creator_id';
+          //   break;
           case 'newsletter':
             return $key = 'newsletter';
             break;
@@ -1474,7 +1564,7 @@ trait Datatable
           case 'ambassadeur':
             return $key = 'ambassador';
             break;
-          case 'actif':
+          case 'statut':
             return $key = 'active';
             break;
           case 'cree_a':

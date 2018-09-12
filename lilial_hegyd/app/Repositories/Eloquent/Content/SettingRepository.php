@@ -6,6 +6,7 @@ use App\Models\Content\Setting;
 use App\Repositories\Contracts\Content\SettingRepositoryInterface;
 use App\Repositories\Eloquent\Repository;
 use App\Services\Common\ExtranetService;
+use Illuminate\Support\Facades\Cache;
 
 class SettingRepository extends Repository implements SettingRepositoryInterface
 {
@@ -43,4 +44,29 @@ class SettingRepository extends Repository implements SettingRepositoryInterface
 
         return $categories_settings;
     }
+
+    /**
+     * cache all setting value
+     * @return [type] [description]
+     */
+    public function getAllSetting()
+    {
+        if (Cache::has('settings')){
+            $settings = Cache::get('settings');
+        }
+        else {
+            $settings = Setting::all();
+
+            $collection = $settings->mapWithKeys(function ($item, $key) {
+                return [$item['key'] => $item];
+            });
+
+            $settings = $collection->all();
+
+            Cache::forever('settings', $settings);
+        }
+
+        return $settings;
+    }
+
 }

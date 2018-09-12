@@ -15,6 +15,10 @@
     @include('app.includes.colors')
 </head>
 
+<?php
+    $site_domain = !empty($site_domain) ? $site_domain : env('APP_URL');
+    $site_name = !empty($site_name) ? $site_name : env('APP_NAME');
+?>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
     <tr bgcolor="#e8e8e8"><td height="30"></td></tr>
@@ -120,9 +124,10 @@
                                         @endif
                                         <tr>
                                             <td class="main-header" style="color: #888888; font-size: 15px; line-height: 26px; font-weight: normal; font-family: Tahoma, Arial, sans-serif;">
-                                                <multiline>
-                                                    @lang('emails.global.footer', ['site_domain' => $site_domain, 'site_name' => $site_name])
-                                                </multiline>
+                                                {!!
+                                                    __('emails.global.footer', ['site_domain' => $site_domain, 'site_name' => $site_name])
+                                                
+                                                !!}
                                             </td>
                                         </tr>
                                     </table>

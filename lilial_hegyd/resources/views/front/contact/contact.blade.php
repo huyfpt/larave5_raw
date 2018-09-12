@@ -16,4 +16,5 @@
 @endsection
 
 @section('js')
+    {!! NoCaptcha::renderJs('fr') !!}
 @endsection

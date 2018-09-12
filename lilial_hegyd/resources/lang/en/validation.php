@@ -96,6 +96,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' => [
+            'unique' => 'Vous êtes déjà inscrit.'
+        ]
     ],
 
     /*

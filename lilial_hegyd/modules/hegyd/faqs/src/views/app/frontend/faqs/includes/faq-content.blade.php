@@ -1,6 +1,6 @@
 <div class="blk-main-content">
   <div class="hotline-side">
-    <div class="hotline-desc"> <span class="sml">RAPPEL</span><span class="lrg">GRATUIT !</span></div><a href="#" class="hot-click"><i style="background-image: url('{{$actual_link}}/front/uploads/icons/ico-phone-w.png')" class="ico"></i></a>
+    <div class="hotline-desc"> <span class="sml">RAPPEL</span><span class="lrg">GRATUIT !</span></div><a href="#" class="hot-click"><i style="background-image: url(' {{ asset('/front/uploads/icons/ico-phone-w.png') }} ')" class="ico"></i></a>
   </div>
   <!-- END : HOTLINE-->
 

@@ -28,7 +28,8 @@ return [
         'meta_description'  => 'Méta la description',
         'meta_keyword'      => 'Méta mot-clé',
         'meta_robots'       => 'Méta des robots',
-        'slug'              => 'Limace',
+        'slug'              => 'SLug',
+        'visibility'        => 'Visibilité',
     ],
     'labels'   => [
         'start_at' => 'Si la date n\'est pas renseignée, elle sera publiée si le champ \'active\' est coché.',
@@ -62,6 +63,6 @@ return [
     ],
     'subtitle'  => [
         'address' => 'Adresse',
-        'date'    => 'Dated'
+        'date'    => 'Dates'
     ]
 ];
