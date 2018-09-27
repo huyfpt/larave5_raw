@@ -1,0 +1,31 @@
+﻿cài vitural host linux
+link: https://support.rackspace.com/how-to/set-up-apache-virtual-hosts-on-ubuntu/
+
+
+kiểm tra có host nào tồn tại
+
+sudo nano/etc/hosts
+
+nếu có (CTRL+K copy)-> sửa tên server name 
+
+kiểm tra apache (nếu chưa thỳ cài )
+
+cd /etc/apache2/sites-available/ls
+
+copy file config có sẳn và đặt tên cho file thay thế
+
+sudo cp lilial.conf huy.dev.conf
+
+vào file vừa copy (huy.dev.conf) sửa tên server name rồi CRTL + O save lại
+
+sudo nano huy.dev.conf
+
+active file config này 
+
+sudo a2ensite huy.dev
+
+cuối cùng là reset lại apache
+
+service apache2 reload
+
+
