@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('posts.index', compact('posts'));
     }
 
@@ -46,7 +46,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->save();
         Session::flash('success', 'the post was saved success!');
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -105,7 +105,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        return 1212;    
         $delPost = Post::where('id', $id);
         $delPost->delete();
         return redirect()->route('posts.index');

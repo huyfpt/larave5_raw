@@ -14,21 +14,24 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($posts as $key => $post)
                 <tr>
-                    <td></td>
-                    <td>{{$post->tilte}}</td>
+                    <td><strong>{{($key + 1)}}</strong></td>
+                    <td>{{$post->title}}</td>
                     <td>{{ substr($post->body, 0 , 50) }}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
                     <td>{{date('M j, Y H:i', strtotime($post->created_at))}}</td>
                     <td>
                         {!! Html::linkRoute('posts.show', 'View',[$post->id], ['class' => 'btn btn-default']) !!}
                         {!! Html::linkRoute('posts.edit', 'Update',[$post->id], ['class' => 'btn btn-primary']) !!}
-                        {!! Html::linkRoute('posts.destroy', 'Delete',[$post->id], ['class' => 'btn btn-danger']) !!}
+                        {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="text-center">{!! $posts->links() !!}</div>
     </div>
     <div class="col-md-2">
         <a href="{{route('posts.create')}}" class="btn btn-primary btn-h1-spacing">Create New post</a>
